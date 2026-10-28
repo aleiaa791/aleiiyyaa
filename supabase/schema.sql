@@ -19,6 +19,7 @@ create table if not exists public.products (
   updated_at timestamptz not null default now()
 );
 alter table public.products enable row level security;
+drop policy if exists "Anyone can view published products" on public.products;
 create policy "Anyone can view published products" on public.products
   for select to anon, authenticated using (is_published = true);
 -- Do not create public insert/update/delete policies for products.
@@ -30,6 +31,9 @@ create table if not exists public.profiles (
   created_at timestamptz not null default now()
 );
 alter table public.profiles enable row level security;
+drop policy if exists "Users can read own profile" on public.profiles;
+drop policy if exists "Users can create own profile" on public.profiles;
+drop policy if exists "Users can update own profile" on public.profiles;
 create policy "Users can read own profile" on public.profiles
   for select to authenticated using ((select auth.uid()) = id);
 create policy "Users can create own profile" on public.profiles
@@ -53,6 +57,7 @@ create table if not exists public.orders (
   created_at timestamptz not null default now()
 );
 alter table public.orders enable row level security;
+drop policy if exists "Customers can read their own orders" on public.orders;
 create policy "Customers can read their own orders" on public.orders
   for select to authenticated using ((select auth.uid()) = user_id);
 -- No client-side order insert/update or payment confirmation policy by design.
@@ -69,6 +74,7 @@ create table if not exists public.order_items (
   created_at timestamptz not null default now()
 );
 alter table public.order_items enable row level security;
+drop policy if exists "Customers can read items from their own orders" on public.order_items;
 create policy "Customers can read items from their own orders" on public.order_items
   for select to authenticated using (
     exists (select 1 from public.orders o where o.id = order_id and o.user_id = (select auth.uid()))
@@ -86,6 +92,7 @@ create table if not exists public.reviews (
   created_at timestamptz not null default now()
 );
 alter table public.reviews enable row level security;
+drop policy if exists "Anyone can view published reviews" on public.reviews;
 create policy "Anyone can view published reviews" on public.reviews
   for select to anon, authenticated using (is_published = true);
 -- Review submission and moderation policies intentionally omitted until verified-purchase
