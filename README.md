@@ -40,3 +40,16 @@ No payment provider is configured. Before enabling checkout, implement a server-
 - Enable GitHub Pages, verify HTTPS and configure the Supabase redirect URLs.
 - Test mobile layouts, authentication, database access policies and payment callbacks.
 
+
+
+## GitHub Pages troubleshooting
+
+The first deployment attempts failed at `actions/configure-pages` because GitHub Pages had not been enabled for this repository and the workflow's default `GITHUB_TOKEN` cannot enable the repository setting. This is a GitHub repository configuration permission, not a problem with the HTML files.
+
+One-time owner action:
+1. Open https://github.com/aleiaa791/aleiiyyaa/settings/pages
+2. Under **Build and deployment → Source**, choose **GitHub Actions** and save if prompted.
+3. Open https://github.com/aleiaa791/aleiiyyaa/actions and rerun the latest failed **Deploy bycaeL to GitHub Pages** workflow.
+4. Wait for a green successful run, then visit https://aleiaa791.github.io/aleiiyyaa/.
+
+The workflow no longer tries to enable Pages using a token that lacks repository administration permission. It deploys the root static site files through the GitHub Pages artifact workflow. A live URL must not be considered verified until the run succeeds.
