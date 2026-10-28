@@ -53,3 +53,12 @@ One-time owner action:
 4. Wait for a green successful run, then visit https://aleiaa791.github.io/aleiiyyaa/.
 
 The workflow no longer tries to enable Pages using a token that lacks repository administration permission. It deploys the root static site files through the GitHub Pages artifact workflow. A live URL must not be considered verified until the run succeeds.
+
+## Admin katalog
+
+- Halaman pengelola: `admin.html` (di GitHub Pages: `https://aleiaa791.github.io/aleiiyyaa/admin.html`).
+- Admin dapat menambah, mengedit, menghapus, memublikasikan produk, memperbarui harga/stok/detail, dan mengunggah foto JPG/PNG/WebP maksimal 5 MB.
+- Katalog publik mengambil produk berstatus tayang dari tabel Supabase `public.products`. Tiga produk awal sudah dimasukkan.
+- Upload gambar menggunakan bucket publik `product-images`; operasi upload/edit/hapus dibatasi lewat RLS pada akun admin.
+- **Aktivasi admin pertama kali:** buat akun lewat tombol Masuk di toko, konfirmasi email bila diminta, lalu buka Supabase Dashboard → Authentication → Users dan salin UUID akun. Ganti placeholder di `supabase/setup-admin.sql` dengan UUID tersebut, lalu jalankan SQL di Supabase SQL Editor. Setelah itu buka `admin.html` dan login. Jangan beri akses admin ke akun yang tidak kamu kendalikan.
+- Tombol publikasi hanya menampilkan produk kepada pengunjung bila dicentang. Periksa nama, harga, deskripsi, foto, stok, dan hak penggunaan foto sebelum publikasi.
