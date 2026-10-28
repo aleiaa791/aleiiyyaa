@@ -1,4 +1,4 @@
-name: Deploy Glow Atelier to GitHub Pages
+name: Deploy bycaeL to GitHub Pages
 
 on:
   push:
