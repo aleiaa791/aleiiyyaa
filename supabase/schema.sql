@@ -1,4 +1,4 @@
--- Glow Atelier initial schema.
+-- bycaeL initial schema.
 -- Apply only after reviewing in the intended Supabase project.
 -- Public catalog rows may be read by visitors; writes are reserved for authenticated admins.
 create extension if not exists pgcrypto;
