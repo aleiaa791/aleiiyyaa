@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f5ef">
+<title>Admin bycaeL — Kelola katalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.admin-wrap{max-width:1180px;margin:0 auto;padding:36px 22px 80px}.admin-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.admin-top h1{font:500 clamp(2rem,4vw,3.2rem)/1.1 var(--serif);margin:6px 0}.admin-top p,.muted{color:var(--muted)}.admin-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.85fr);gap:24px;align-items:start}.admin-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 36px #25352c08}.admin-panel h2{font:500 1.55rem var(--serif);margin:0 0 18px}.admin-form{display:grid;gap:13px}.admin-form label{display:grid;gap:6px;font-size:.86rem;font-weight:600}.admin-form input,.admin-form textarea,.admin-form select{width:100%;border:1px solid var(--line);border-radius:9px;padding:11px 12px;background:#fffefa;color:var(--ink);font:inherit}.admin-form textarea{min-height:90px;resize:vertical}.admin-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.admin-check{display:flex!important;align-items:center;gap:9px}.admin-check input{width:auto}.admin-actions{display:flex;gap:9px;flex-wrap:wrap}.admin-status{padding:12px 14px;border-radius:10px;background:#f4f4ed;color:var(--ink);margin:0 0 16px;overflow-wrap:anywhere}.admin-status.error{background:#fff0ed;color:#8c3023}.admin-list{display:grid;gap:10px}.admin-product{display:grid;grid-template-columns:68px minmax(0,1fr);gap:12px;padding:11px;border:1px solid var(--line);border-radius:12px;align-items:center}.admin-product img{width:68px;height:82px;object-fit:contain;background:#f7f5ef;border-radius:8px}.admin-product h3{font-size:.95rem;margin:0 0 4px}.admin-product p{font-size:.82rem;color:var(--muted);margin:0 0 8px}.admin-product-actions{display:flex;gap:8px;flex-wrap:wrap}.admin-product-actions button,.small-button{border:1px solid var(--line);background:#fffefa;border-radius:8px;padding:7px 10px;cursor:pointer;color:var(--ink);font:inherit;font-size:.8rem}.admin-product-actions .danger{color:#a13d30}.admin-preview{max-width:120px;max-height:150px;object-fit:contain;display:none;border-radius:8px;background:#f7f5ef}.admin-auth{max-width:480px;margin:48px auto}.admin-help{font-size:.88rem;line-height:1.6;color:var(--muted)}.admin-hidden{display:none!important}@media(max-width:820px){.admin-layout{grid-template-columns:1fr}.admin-top{align-items:flex-start;flex-direction:column}.admin-wrap{padding:24px 14px 60px}}@media(max-width:430px){.admin-two{grid-template-columns:1fr}.admin-panel{padding:16px}}
+</style>
+</head>
+<body>
+<div class="announcement">Ruang pengelola katalog bycaeL <span>✳</span></div>
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark">b<span>✳</span></span><span>bycaeL<small>ADMIN CATALOG</small></span></a>
+<div class="header-actions"><a class="text-button" href="index.html">Lihat toko ↗</a><button class="text-button admin-hidden" id="logoutButton" type="button">Keluar</button></div>
+</header>
+<main class="admin-wrap">
+<section id="authPanel" class="admin-panel admin-auth">
+<span class="eyebrow">ADMIN ACCESS</span><h1 style="font:500 2.3rem var(--serif);margin:8px 0 14px">Masuk ke pengelola.</h1>
+<p class="muted">Gunakan akun yang sudah diberi akses admin oleh pemilik toko.</p>
+<form id="loginForm" class="admin-form">
+<label>Email admin<input id="loginEmail" type="email" autocomplete="username" required></label>
+<label>Kata sandi<input id="loginPassword" type="password" autocomplete="current-password" minlength="8" required></label>
+<button class="button dark" type="submit">Masuk sebagai admin</button>
+</form>
+<p id="authStatus" class="admin-status" role="status" aria-live="polite" style="margin-top:16px">Menghubungkan layanan akun…</p>
+<p class="admin-help">Akses admin tidak ditentukan hanya dari email atau tombol ini. Akun harus tercatat di daftar admin database.</p>
+</section>
+<section id="adminPanel" class="admin-hidden">
+<div class="admin-top"><div><span class="eyebrow">PRODUCT MANAGEMENT</span><h1>Kelola katalog<span class="dot">.</span></h1><p>Tambah produk, unggah foto, ubah detail, stok, harga, dan status tayang.</p></div><button class="button dark" id="newProductButton" type="button">＋ Produk baru</button></div>
+<p id="adminStatus" class="admin-status" role="status" aria-live="polite">Memuat katalog…</p>
+<div class="admin-layout">
+<section class="admin-panel"><h2 id="formTitle">Tambah produk</h2>
+<form id="productForm" class="admin-form">
+<input type="hidden" id="productId">
+<label>Nama produk<input id="productName" maxlength="160" required placeholder="Nama produk sesuai kemasan"></label>
+<label>Slug / URL produk<input id="productSlug" maxlength="160" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" required placeholder="nama-produk"></label>
+<label>Deskripsi lengkap<textarea id="productDescription" maxlength="5000" required placeholder="Deskripsi, manfaat, dan cara pakai yang terverifikasi"></textarea></label>
+<div class="admin-two"><label>Harga (Rp)<input id="productPrice" type="number" min="0" step="1" required></label><label>Stok<input id="productStock" type="number" min="0" step="1" required value="0"></label></div>
+<div class="admin-two"><label>Ukuran / isi<input id="productSize" maxlength="80" placeholder="15 ml"></label><label>Isi kemasan<input id="productPackage" maxlength="300" placeholder="1 produk"></label></div>
+<label>Bahan / ingredients<textarea id="productIngredients" maxlength="5000" placeholder="Salin dari sumber atau kemasan resmi"></textarea></label>
+<label>Foto produk (JPG, PNG, WebP · maks. 5 MB)<input id="productImage" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<img id="imagePreview" class="admin-preview" alt="Pratinjau foto produk">
+<label>URL foto (opsional jika sudah diunggah)<input id="productImageUrl" type="url" maxlength="2000" placeholder="Diisi otomatis setelah unggah"></label>
+<label class="admin-check"><input id="productPublished" type="checkbox"> Tampilkan produk di toko publik</label>
+<div class="admin-actions"><button class="button dark" id="saveProductButton" type="submit">Simpan produk</button><button class="button secondary-action" id="cancelEditButton" type="button">Kosongkan formulir</button></div>
+</form></section>
+<section class="admin-panel"><h2>Daftar produk</h2><p class="muted" style="margin-top:-8px">Produk draft juga muncul di sini. Pengunjung hanya melihat produk yang dipublikasikan.</p><div id="productList" class="admin-list"></div></section>
+</div>
+</section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module">
+const CONFIG={url:"https://dlphrewywirnvvgjleon.supabase.co",key:"sb_publishable_hs2ExVFi3S2jOd56jK9jow_EVZ-xbLD"};
+const $=s=>document.querySelector(s);
+let supabase=null,currentUser=null,products=[];
+function status(message,error=false){const n=$("#adminStatus");n.textContent=message;n.classList.toggle("error",error)}
+function authStatus(message,error=false){const n=$("#authStatus");n.textContent=message;n.classList.toggle("error",error)}
+function escapeText(value){return String(value??"")}
+function money(n){return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n)}
+async function start(){
+ try{const {createClient}=await import("https://esm.sh/@supabase/supabase-js@2.57.0");supabase=createClient(CONFIG.url,CONFIG.key);const {data,error}=await supabase.auth.getSession();if(error)throw error;if(data.session)await checkAdmin(data.session.user);else authStatus("Silakan masuk dengan akun admin.");supabase.auth.onAuthStateChange((event,session)=>{if(event==="SIGNED_OUT"){currentUser=null;$("#adminPanel").classList.add("admin-hidden");$("#authPanel").classList.remove("admin-hidden");$("#logoutButton").classList.add("admin-hidden")} });}catch(e){authStatus("Layanan akun gagal dimuat. Periksa koneksi lalu muat ulang halaman.",true)}
+}
+async function checkAdmin(user){
+ currentUser=user;authStatus("Memeriksa izin admin…");
+ const {data,error}=await supabase.from("admin_users").select("user_id").eq("user_id",user.id).maybeSingle();
+ if(error){authStatus("Tidak bisa memeriksa izin admin. Pastikan SQL admin sudah diterapkan di Supabase. Detail: "+error.message,true);return}
+ if(!data){authStatus("Akun ini belum diberi izin admin. Ikuti instruksi di supabase/setup-admin.sql, lalu keluar dan masuk kembali.",true);return}
+ $("#authPanel").classList.add("admin-hidden");$("#adminPanel").classList.remove("admin-hidden");$("#logoutButton").classList.remove("admin-hidden");await loadProducts();
+}
+$("#loginForm").addEventListener("submit",async e=>{e.preventDefault();if(!supabase){authStatus("Layanan akun belum siap.",true);return}authStatus("Sedang masuk…");const {data,error}=await supabase.auth.signInWithPassword({email:$("#loginEmail").value.trim(),password:$("#loginPassword").value});if(error){authStatus("Gagal masuk: "+error.message,true);return}await checkAdmin(data.user)});
+$("#logoutButton").addEventListener("click",async()=>{await supabase.auth.signOut();$("#adminPanel").classList.add("admin-hidden");$("#authPanel").classList.remove("admin-hidden");$("#logoutButton").classList.add("admin-hidden");authStatus("Kamu sudah keluar.")});
+function resetForm(){ $("#productForm").reset();$("#productId").value="";$("#productStock").value="0";$("#productImageUrl").value="";$("#imagePreview").style.display="none";$("#imagePreview").removeAttribute("src");$("#formTitle").textContent="Tambah produk";$("#saveProductButton").textContent="Simpan produk"; }
+$("#newProductButton").addEventListener("click",()=>{resetForm();window.scrollTo({top:0,behavior:"smooth"})});
+$("#cancelEditButton").addEventListener("click",resetForm);
+$("#productName").addEventListener("input",()=>{if(!$("#productId").value)$("#productSlug").value=$("#productName").value.normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")});
+$("#productImage").addEventListener("change",()=>{const f=$("#productImage").files[0];if(!f){$("#imagePreview").style.display="none";return}if(!["image/jpeg","image/png","image/webp"].includes(f.type)||f.size>5242880){status("File harus JPG, PNG, atau WebP dengan ukuran maksimal 5 MB.",true);$("#productImage").value="";return}$("#imagePreview").src=URL.createObjectURL(f);$("#imagePreview").style.display="block"});
+async function loadProducts(){status("Memuat daftar produk…");const {data,error}=await supabase.from("products").select("*").order("created_at",{ascending:false});if(error){status("Gagal memuat produk: "+error.message,true);return}products=data||[];renderProducts();status("Berhasil memuat "+products.length+" produk.");}
+function renderProducts(){const list=$("#productList");list.replaceChildren();if(!products.length){const p=document.createElement("p");p.className="muted";p.textContent="Belum ada produk di database. Tambahkan produk lewat formulir.";list.append(p);return}for(const p of products){const row=document.createElement("article");row.className="admin-product";const img=document.createElement("img");img.alt="Foto "+p.name;img.loading="lazy";img.src=p.image_url||"";img.onerror=()=>{img.removeAttribute("src");img.alt="Foto belum tersedia"};const body=document.createElement("div");const title=document.createElement("h3");title.textContent=p.name;const meta=document.createElement("p");meta.textContent=money(p.price_idr)+" · stok "+p.stock+" · "+(p.is_published?"Tayang":"Draft");const actions=document.createElement("div");actions.className="admin-product-actions";const edit=document.createElement("button");edit.type="button";edit.textContent="Edit";edit.addEventListener("click",()=>editProduct(p.id));const del=document.createElement("button");del.type="button";del.className="danger";del.textContent="Hapus";del.addEventListener("click",()=>deleteProduct(p.id));actions.append(edit,del);body.append(title,meta,actions);row.append(img,body);list.append(row)}}
+function editProduct(id){const p=products.find(x=>x.id===id);if(!p)return;$("#productId").value=p.id;$("#productName").value=p.name;$("#productSlug").value=p.slug;$("#productDescription").value=p.description||"";$("#productPrice").value=p.price_idr;$("#productStock").value=p.stock;$("#productSize").value=p.size_label||"";$("#productPackage").value=p.package_contents||"";$("#productIngredients").value=p.ingredients||"";$("#productImageUrl").value=p.image_url||"";$("#productPublished").checked=Boolean(p.is_published);$("#productImage").value="";$("#imagePreview").style.display=p.image_url?"block":"none";if(p.image_url)$("#imagePreview").src=p.image_url;$("#formTitle").textContent="Edit produk";$("#saveProductButton").textContent="Simpan perubahan";window.scrollTo({top:0,behavior:"smooth"})}
+async function uploadImage(file){const ext=file.type==="image/png"?"png":file.type==="image/webp"?"webp":"jpg";const path=currentUser.id+"/"+crypto.randomUUID()+"."+ext;const {error}=await supabase.storage.from("product-images").upload(path,file,{contentType:file.type,upsert:false});if(error)throw error;const {data}=supabase.storage.from("product-images").getPublicUrl(path);return data.publicUrl}
+$("#productForm").addEventListener("submit",async e=>{e.preventDefault();const btn=$("#saveProductButton");btn.disabled=true;try{let imageUrl=$("#productImageUrl").value.trim()||null;const file=$("#productImage").files[0];if(file)imageUrl=await uploadImage(file);const payload={name:$("#productName").value.trim(),slug:$("#productSlug").value.trim(),description:$("#productDescription").value.trim(),price_idr:Number($("#productPrice").value),stock:Number($("#productStock").value),size_label:$("#productSize").value.trim()||null,package_contents:$("#productPackage").value.trim()||null,ingredients:$("#productIngredients").value.trim()||null,image_url:imageUrl,is_published:$("#productPublished").checked,updated_at:new Date().toISOString()};if(!payload.name||!payload.slug||!payload.description||!Number.isSafeInteger(payload.price_idr)||payload.price_idr<0||!Number.isSafeInteger(payload.stock)||payload.stock<0)throw new Error("Periksa nama, slug, deskripsi, harga, dan stok.");const id=$("#productId").value;const result=id?await supabase.from("products").update(payload).eq("id",id).select().single():await supabase.from("products").insert(payload).select().single();if(result.error)throw result.error;status("Produk berhasil "+(id?"diperbarui.":"ditambahkan.")+" Jika dipublikasikan, produk siap dibaca dari katalog database.");resetForm();await loadProducts()}catch(err){status("Tidak berhasil menyimpan: "+err.message,true)}finally{btn.disabled=false}});
+async function deleteProduct(id){const p=products.find(x=>x.id===id);if(!p||!confirm('Hapus produk "'+p.name+'"? Tindakan ini tidak dapat dibatalkan.'))return;const {error}=await supabase.from("products").delete().eq("id",id);if(error){status("Gagal menghapus: "+error.message,true);return}status("Produk dihapus.");await loadProducts()}
+start();
+</script>
+</body></html>
