@@ -22,9 +22,9 @@ Open `index.html` in a browser or deploy the static files to a static hosting se
 2. Review and run `supabase/schema.sql` in that project's SQL Editor.
 3. Configure email authentication and allowed redirect URLs in Supabase Auth.
 4. Set the project URL and publishable key in `CONFIG` in `app.js` (the current values are blank). These are browser-public configuration values; **never** put a service-role or secret key in this file.
-5. Verify sign-up, email confirmation, sign-in and sign-out before launch.
+5. Email/password sign-in is enabled by default on hosted Supabase projects; email confirmation is typically required by default. Verify the setting under Authentication → Providers → Email, and configure the Site URL plus allowed redirect URLs under Authentication → URL Configuration.\n6. Test sign-up using an email address you control, click the confirmation email, then test sign-in and sign-out. A live end-to-end test needs a real inbox and a deployed/allowed redirect URL.
 
-## Payments and order safety
+## Authentication status\n\nThe frontend is now wired to the Supabase project URL and its public publishable key. The login, registration, session detection, and sign-out flows call Supabase Auth. The database project and tables were verified through Supabase tools, but a real email-based sign-up/sign-in round trip has not yet been completed from this environment because it cannot send/receive a verification email. Do not treat authentication as end-to-end verified until you test with an email address you control.\n\n## Payments and order safety
 
 No payment provider is configured. Before enabling checkout, implement a server-side or Supabase Edge Function that creates payment sessions using a provider's secret key stored as a server secret. Validate the provider's signed webhook before marking an order paid. Recalculate prices and stock on the server; never trust totals or payment status sent by the browser. Do not collect raw card numbers or CVV on this site.
 
