@@ -36,7 +36,7 @@ async function loadPublishedCatalog(){
  const grid=$("#productGrid");if(!grid)return;grid.replaceChildren();
  data.forEach(row=>{
   const card=document.createElement("article");card.className="product-card";card.dataset.category="beauty";
-  const slug=escapeHtml(row.slug),name=escapeHtml(row.name),size=escapeHtml(row.size_label||""),image=escapeHtml(row.image_url||""),price=Number(row.price_idr)||0;
+  const slug=escapeHtml(row.slug),name=escapeHtml(row.name),size=escapeHtml(row.size_label||""),image=escapeHtml(row.slug==="esqa"?"assets/esqa-bycael.jpg":(row.image_url||"")),price=Number(row.price_idr)||0;
   card.innerHTML='<button class="product-image image-one" data-detail="'+slug+'" aria-label="Lihat detail '+name+'"><span class="product-tag">BYCAEL EDIT</span><img loading="lazy" src="'+image+'" alt="'+name+'"><span class="quick-view">Lihat detail ↗</span></button><div class="product-meta"><div><h3>'+name+'</h3><p>Skin tint'+(size?' · '+size:'')+'</p></div><button class="add-button" data-add="'+slug+'" aria-label="Tambah '+name+'">+</button></div><div class="product-bottom"><span class="price">'+money(price)+'</span><span class="stock">'+(Number(row.stock)>0?'Stok '+Number(row.stock):'Hubungi toko')+'</span></div>';
   const img=card.querySelector("img");img.addEventListener("error",()=>{img.alt="Foto produk belum tersedia";img.removeAttribute("src")});
   grid.append(card);
