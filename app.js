@@ -1,5 +1,5 @@
 const PRODUCTS = {
- esqa:{id:"esqa",name:"ESQA Blurring Serum Skin Tint 15ml",category:"Complexion",size:"15 ml",price:112000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (15 ml)",image:"https://images.soco.id/9d27af00-bc22-45eb-828b-1a47337d7f28-1000311819",description:"ESQA Blurring Serum Skin Tint 15ml. Serum skin tint untuk tampilan complexion natural. Periksa shade, daftar bahan, dan informasi resmi pada kemasan sebelum membeli."}
+ esqa:{id:"esqa",name:"ESQA Blurring Serum Skin Tint 15ml",category:"Complexion",size:"15 ml",price:112000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (15 ml)",image:"assets/esqa-bycael.jpg",description:"ESQA Blurring Serum Skin Tint 15ml. Serum skin tint untuk tampilan complexion natural. Periksa shade, daftar bahan, dan informasi resmi pada kemasan sebelum membeli."}
 };
 const CONFIG = {supabaseUrl:"https://dlphrewywirnvvgjleon.supabase.co",supabasePublishableKey:"sb_publishable_hs2ExVFi3S2jOd56jK9jow_EVZ-xbLD"};
 let supabase = null, cart = {}, toastTimer, authReady = false;
@@ -32,7 +32,7 @@ async function loadPublishedCatalog(){
  data = data.filter(row=>row.slug==="esqa");
  if(data.length===0)return;
  Object.keys(PRODUCTS).forEach(key=>delete PRODUCTS[key]);
- data.forEach(row=>{PRODUCTS[row.slug]={id:row.slug,name:row.name,category:"Beauty",size:row.size_label||"",price:Number(row.price_idr)||0,stock:row.stock,ingredients:row.ingredients||"Periksa informasi resmi pada kemasan produk.",package:row.package_contents||"1 produk",image:row.image_url||"",description:row.description||""}});
+ data.forEach(row=>{PRODUCTS[row.slug]={id:row.slug,name:row.name,category:"Beauty",size:row.size_label||"",price:Number(row.price_idr)||0,stock:row.stock,ingredients:row.ingredients||"Periksa informasi resmi pada kemasan produk.",package:row.package_contents||"1 produk",image:row.slug==="esqa"?"assets/esqa-bycael.jpg":(row.image_url||""),description:row.description||""}});
  const grid=$("#productGrid");if(!grid)return;grid.replaceChildren();
  data.forEach(row=>{
   const card=document.createElement("article");card.className="product-card";card.dataset.category="beauty";
