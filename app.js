@@ -1,7 +1,7 @@
 const PRODUCTS = {
- esqa:{id:"esqa",name:"ESQA Blurring Serum Skintint",category:"Skin tint",size:"15 ml",price:112000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (15 ml)",image:"./assets/esqa.jpg",description:"ESQA Blurring Serum Skintint. Pilih varian warna yang sesuai dan periksa informasi resmi pada kemasan sebelum digunakan."},
- somethinc:{id:"somethinc",name:"Somethinc Copy Paste Skin Tint",category:"Skin tint",size:"50 ml",price:107000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (50 ml)",image:"./assets/somethinc.jpg",description:"Somethinc Copy Paste Skin Tint 50 ml. Periksa varian warna, petunjuk pemakaian, dan informasi produk pada kemasan resmi."},
- rose:{id:"rose",name:"Rosé All Day The Realest Lightweight Skin Tint",category:"Skin tint",size:"30 ml",price:102000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (30 ml)",image:"./assets/rose.jpg",description:"Rosé All Day The Realest Lightweight Skin Tint 30 ml. Periksa varian warna dan informasi resmi produk pada kemasan."}
+ esqa:{id:"esqa",name:"ESQA Blurring Serum Skintint",category:"Complexion",size:"",price:112000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk",image:"./assets/esqa.jpg",description:"ESQA Blurring Serum Skintint. Produk terpilih dalam laporan riset. Periksa shade, daftar bahan, dan petunjuk pemakaian pada kemasan resmi."},
+ somethinc:{id:"somethinc",name:"Somethinc HOOMAN Under Control HD Blur Loose Powder",category:"Face powder",size:"",price:98000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk",image:"./assets/somethinc.jpg",description:"Somethinc HOOMAN Under Control HD Blur Loose Powder. Kandidat produk dalam laporan riset. Periksa informasi dan petunjuk penggunaan pada kemasan resmi."},
+ rose:{id:"rose",name:"Rose All Day Lip Mousse Records",category:"Lip",size:"",price:80000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk",image:"./assets/rose.jpg",description:"Rose All Day Lip Mousse Records. Kandidat produk dalam laporan riset. Periksa pilihan warna, daftar bahan, dan informasi pada kemasan resmi."}
 };
 const CONFIG = {supabaseUrl:"https://dlphrewywirnvvgjleon.supabase.co",supabasePublishableKey:"sb_publishable_hs2ExVFi3S2jOd56jK9jow_EVZ-xbLD"};
 let supabase = null, cart = {}, toastTimer, authReady = false;
@@ -26,10 +26,10 @@ async function loadPublishedCatalog(){
  if(error){console.warn("Katalog database belum tersedia; menggunakan katalog bawaan.",error.message);return}
  if(!data||data.length===0)return;
  Object.keys(PRODUCTS).forEach(key=>delete PRODUCTS[key]);
- data.forEach(row=>{PRODUCTS[row.slug]={id:row.slug,name:row.name,category:"Skin tint",size:row.size_label||"",price:Number(row.price_idr)||0,stock:row.stock,ingredients:row.ingredients||"Periksa informasi resmi pada kemasan produk.",package:row.package_contents||"1 produk",image:row.image_url||"",description:row.description||""}});
+ data.forEach(row=>{PRODUCTS[row.slug]={id:row.slug,name:row.name,category:"Beauty",size:row.size_label||"",price:Number(row.price_idr)||0,stock:row.stock,ingredients:row.ingredients||"Periksa informasi resmi pada kemasan produk.",package:row.package_contents||"1 produk",image:row.image_url||"",description:row.description||""}});
  const grid=$("#productGrid");if(!grid)return;grid.replaceChildren();
  data.forEach(row=>{
-  const card=document.createElement("article");card.className="product-card";card.dataset.category="skintint";
+  const card=document.createElement("article");card.className="product-card";card.dataset.category="beauty";
   const slug=escapeHtml(row.slug),name=escapeHtml(row.name),size=escapeHtml(row.size_label||""),image=escapeHtml(row.image_url||""),price=Number(row.price_idr)||0;
   card.innerHTML='<button class="product-image image-one" data-detail="'+slug+'" aria-label="Lihat detail '+name+'"><span class="product-tag">BYCAEL EDIT</span><img loading="lazy" src="'+image+'" alt="'+name+'"><span class="quick-view">Lihat detail ↗</span></button><div class="product-meta"><div><h3>'+name+'</h3><p>Skin tint'+(size?' · '+size:'')+'</p></div><button class="add-button" data-add="'+slug+'" aria-label="Tambah '+name+'">+</button></div><div class="product-bottom"><span class="price">'+money(price)+'</span><span class="stock">'+(Number(row.stock)>0?'Stok '+Number(row.stock):'Hubungi toko')+'</span></div>';
   const img=card.querySelector("img");img.addEventListener("error",()=>{img.alt="Foto produk belum tersedia";img.removeAttribute("src")});
