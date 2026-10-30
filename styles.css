@@ -15,3 +15,23 @@
 .newsletter{background:#f4dfe3}.policy-grid details{border-color:#f0dfe2}.contact-section{background:#f9ecea}
 .bag-button{border-color:#e5c7cf}.bag-button span{background:#5a3e4a}
 @media(max-width:700px){.hero-art>img{border-radius:44% 44% 12px 12px}.product-image{border-radius:17px 17px 7px 7px}}
+
+
+/* Single-product ESQA storefront */
+.product-grid{grid-template-columns:minmax(0,460px);justify-content:center;gap:0}
+.product-card{width:100%;max-width:460px;margin:0 auto}
+.product-image{aspect-ratio:1.05;background:#f8e8e8}
+.product-image img{object-fit:contain;padding:28px;mix-blend-mode:multiply}
+.product-meta h3{font-size:15px}
+.product-meta p{font-size:11px}
+.product-bottom{margin-top:14px}
+.price{font-size:15px}
+.stock{font-size:10px}
+.filter-row{justify-content:flex-end}
+.hero-art>img{object-fit:contain;background:#f8e8e8;padding:35px}
+@media(max-width:700px){
+ .product-grid{grid-template-columns:minmax(0,1fr);max-width:440px;margin:0 auto}
+ .product-image{aspect-ratio:1}
+ .product-image img{padding:24px}
+ .hero-art>img{padding:22px}
+}
