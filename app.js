@@ -1,7 +1,5 @@
 const PRODUCTS = {
- esqa:{id:"esqa",name:"ESQA Minimalist Blurring Serum Skin Tint SPF 35 PA++",category:"Complexion",size:"15 ml",price:112000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk",image:"https://images.soco.id/9d27af00-bc22-45eb-828b-1a47337d7f28-1000311819",description:"ESQA Minimalist Blurring Serum Skin Tint SPF 35 PA++. Foto katalog menampilkan kemasan produk yang sesuai. Pilih shade yang cocok dan periksa informasi resmi pada kemasan."},
- somethinc:{id:"somethinc",name:"Somethinc Copy Paste Skin Tint",category:"Complexion",size:"50 ml",price:107000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (50 ml)",image:"https://www.herworld.co.id/gallery/images/Skin_Tint_-_Somethinc.jpg",description:"Somethinc Copy Paste Skin Tint 50 ml. Periksa varian warna, daftar bahan, dan informasi produk pada kemasan resmi."},
- rose:{id:"rose",name:"Rose All Day The Realest Lightweight Skin Tint",category:"Complexion",size:"30 ml",price:102000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (30 ml)",image:"https://roseallday.co/cdn/shop/files/PDPNewLayout-_SkinTInt.jpg?v=1699604069",description:"Rose All Day The Realest Lightweight Skin Tint 30 ml. Periksa varian warna dan informasi resmi produk pada kemasan."}
+ esqa:{id:"esqa",name:"ESQA Blurring Serum Skin Tint 15ml",category:"Complexion",size:"15 ml",price:112000,stock:null,ingredients:"Periksa daftar bahan pada kemasan resmi produk.",package:"1 produk (15 ml)",image:"https://images.soco.id/9d27af00-bc22-45eb-828b-1a47337d7f28-1000311819",description:"ESQA Blurring Serum Skin Tint 15ml. Serum skin tint untuk tampilan complexion natural. Periksa shade, daftar bahan, dan informasi resmi pada kemasan sebelum membeli."}
 };
 const CONFIG = {supabaseUrl:"https://dlphrewywirnvvgjleon.supabase.co",supabasePublishableKey:"sb_publishable_hs2ExVFi3S2jOd56jK9jow_EVZ-xbLD"};
 let supabase = null, cart = {}, toastTimer, authReady = false;
@@ -24,7 +22,7 @@ async function loadPublishedCatalog(){
  if(!supabase)return;
  const {data,error}=await supabase.from("products").select("id,slug,name,description,price_idr,size_label,ingredients,package_contents,image_url,stock").eq("is_published",true).order("created_at",{ascending:false});
  if(error){console.warn("Katalog database belum tersedia; menggunakan katalog bawaan.",error.message);return}
- if(!data||data.length===0)return;
+ if(!data||data.length===0)return;\n data = data.filter(row=>row.slug==="esqa");\n if(data.length===0)return;
  Object.keys(PRODUCTS).forEach(key=>delete PRODUCTS[key]);
  data.forEach(row=>{PRODUCTS[row.slug]={id:row.slug,name:row.name,category:"Beauty",size:row.size_label||"",price:Number(row.price_idr)||0,stock:row.stock,ingredients:row.ingredients||"Periksa informasi resmi pada kemasan produk.",package:row.package_contents||"1 produk",image:row.image_url||"",description:row.description||""}});
  const grid=$("#productGrid");if(!grid)return;grid.replaceChildren();
