@@ -37,7 +37,7 @@ async function loadPublishedCatalog(){
  });
  $("#resultCount").textContent=data.length+" produk";
 }
-function initSupabase(){if(!CONFIG.supabaseUrl||!CONFIG.supabasePublishableKey)return;import("https://esm.sh/@supabase/supabase-js@2.57.0").then(({createClient})=>{supabase=createClient(CONFIG.supabaseUrl,CONFIG.supabasePublishableKey);authReady=true;loadPublishedCatalog();supabase.auth.getSession().then(({data})=>{if(data.session)$("#accountButton").textContent="Akun"});supabase.auth.onAuthStateChange((_event,session)=>{$("#accountButton").textContent=session?"Akun":"Masuk"})}).catch(()=>notify("SDK autentikasi belum dapat dimuat"))}
+function initSupabase(){if(!CONFIG.supabaseUrl||!CONFIG.supabasePublishableKey)return;import("https://esm.sh/@supabase/supabase-js@2.57.0").then(({createClient})=>{supabase=createClient(CONFIG.supabaseUrl,CONFIG.supabasePublishableKey);authReady=true;supabase.auth.getSession().then(({data})=>{if(data.session)$("#accountButton").textContent="Akun"});supabase.auth.onAuthStateChange((_event,session)=>{$("#accountButton").textContent=session?"Akun":"Masuk"})}).catch(()=>notify("SDK autentikasi belum dapat dimuat"))}
 $("#year").textContent=new Date().getFullYear();
 $("#menuToggle").addEventListener("click",()=>$("#mainNav").classList.toggle("open"));
 $$('#mainNav a').forEach(a=>a.addEventListener("click",()=>$("#mainNav").classList.remove("open")));
