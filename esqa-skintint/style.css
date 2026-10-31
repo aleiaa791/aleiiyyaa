@@ -82,3 +82,101 @@
 @media(prefers-reduced-motion:reduce){
  .hero-product-image,.hero-copy,.hero-product,.hero-product .art-pill{animation:none!important;will-change:auto}
 }
+
+
+/* Refined ESQA shade selection layout */
+.product-info .shade-label{
+  display:block;
+  width:100%;
+  text-align:center;
+  font:500 18px var(--serif);
+  margin:30px auto 14px;
+  color:var(--ink);
+}
+.product-info .shade-guide{
+  width:100%;
+  max-width:540px;
+  margin:0 auto 18px;
+  padding:12px;
+  border:1px solid #e7d9d0;
+  border-radius:4px;
+  background:#fffdfa;
+}
+.product-info .shade-guide img{
+  width:100%;
+  max-height:260px;
+  object-fit:contain;
+}
+.product-info .shade-guide figcaption{
+  text-align:center;
+  font-size:9px;
+  line-height:1.55;
+  margin:9px 4px 2px;
+}
+.product-info .shade-swatches{
+  width:100%;
+  max-width:540px;
+  margin:0 auto 12px;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+}
+.product-info .shade-swatches button{
+  position:relative;
+  min-height:92px;
+  padding:11px 4px 9px;
+  gap:9px;
+  border:1px solid #e8ddd5;
+  border-radius:5px;
+  background:#fffdfa;
+}
+.product-info .shade-swatches button i{
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+}
+.product-info .shade-swatches button span{
+  font-size:10px;
+  white-space:normal;
+  text-align:center;
+}
+.product-info .shade-swatches button.active{
+  border:1.5px solid #9b7565;
+  background:#f5ece6;
+}
+.product-info .shade-swatches button.active:after{
+  content:"✓";
+  position:absolute;
+  top:5px;
+  right:6px;
+  width:15px;
+  height:15px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#8f6d5d;
+  color:white;
+  font:10px var(--sans);
+}
+.product-info .shade-note{
+  max-width:540px;
+  margin:0 auto 14px;
+  text-align:center;
+}
+.product-info #shade{
+  max-width:540px;
+  margin:0 auto;
+  border-radius:3px;
+}
+@media(max-width:600px){
+ .product-info .shade-guide{padding:8px}
+ .product-info .shade-guide img{max-height:none}
+ .product-info .shade-swatches{gap:7px}
+ .product-info .shade-swatches button{min-height:82px;padding:9px 2px 7px}
+ .product-info .shade-swatches button i{width:29px;height:29px;flex-basis:29px}
+ .product-info .shade-swatches button span{font-size:9px}
+}
+@media(max-width:360px){
+ .product-info .shade-swatches{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .product-info .shade-swatches button{min-height:68px;flex-direction:row;justify-content:flex-start;padding:9px 12px}
+}
