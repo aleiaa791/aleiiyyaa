@@ -383,3 +383,87 @@ html{scroll-behavior:smooth}
   .announcement-track{animation:none;transform:none}
   .announcement-group[aria-hidden="true"]{display:none}
 }
+
+
+/* Stronger scroll animations from the review section to the footer */
+@keyframes bycaeLSectionRise{
+  from{opacity:0;transform:translateY(48px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes bycaeLReviewPop{
+  0%{opacity:0;transform:translateY(36px) scale(.97)}
+  70%{opacity:1;transform:translateY(-4px) scale(1.005)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes bycaeLAboutDrift{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  50%{transform:translateY(-12px) rotate(2deg)}
+}
+.review-section .review-inner{
+  animation:bycaeLSectionRise .9s cubic-bezier(.2,.75,.25,1) both;
+}
+.review-section .review-summary{
+  animation:bycaeLReviewPop .95s cubic-bezier(.2,.75,.25,1) both;
+}
+.review-section .demo-stars{
+  display:inline-block;
+  animation:bycaelSoftPulse 2s ease-in-out infinite;
+}
+.about-section .about-art{
+  transition:transform .45s ease,box-shadow .45s ease;
+}
+.about-section .about-circle{
+  animation:bycaeLAboutDrift 4s ease-in-out infinite;
+}
+.about-section .about-art:hover{
+  transform:translateY(-8px) rotate(-1deg);
+  box-shadow:0 18px 35px rgba(74,48,37,.12);
+}
+.about-section .about-copy>*{
+  transition:transform .35s ease;
+}
+.about-section .about-copy>a:hover{transform:translateX(7px)}
+.policy-grid details{
+  transition:background .3s ease,padding .3s ease,box-shadow .3s ease;
+}
+.policy-grid details:hover{
+  background:#f8f1eb;
+  box-shadow:0 8px 20px rgba(74,48,37,.06);
+}
+.policy-grid summary span{
+  display:inline-block;
+  transition:transform .3s ease;
+}
+.policy-grid details[open] summary span{transform:rotate(45deg)}
+.contact-section .contact-details>a{
+  display:block;
+  transition:transform .3s ease,color .3s ease;
+}
+.contact-section .contact-details>a:hover{
+  transform:translateX(9px);
+  color:var(--accent);
+}
+footer a{transition:transform .25s ease,color .25s ease}
+footer a:hover{display:inline-block;transform:translateY(-3px);color:var(--accent)}
+@supports (animation-timeline:view()){
+  .review-section .review-inner,
+  .review-section .review-summary,
+  .about-section .about-art,
+  .about-section .about-copy,
+  .policy-section .section-heading,
+  .policy-grid details,
+  .contact-section>div{
+    animation:bycaeLSectionRise .85s cubic-bezier(.2,.75,.25,1) both;
+    animation-timeline:view();
+    animation-range:entry 0% entry 38%;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .review-section .review-inner,.review-section .review-summary,
+  .review-section .demo-stars,.about-section .about-circle,
+  .about-section .about-art,.policy-grid details,
+  .contact-section .contact-details>a,footer a{
+    animation:none!important;
+    transition:none!important;
+  }
+}
