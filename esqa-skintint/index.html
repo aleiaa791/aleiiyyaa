@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=scroll-reveal-visible-9">
+  <link rel="stylesheet" href="./style.css?v=demo-payment-10">
 </head>
 <body>
   <div class="announcement" aria-label="A little beauty, a lot of confidence — Salatiga, Indonesia">
@@ -22,7 +22,7 @@
     <a class="brand" href="#home" aria-label="bycaeL beranda">bycaeL<span>.</span><small>BEAUTY & SKINCARE</small></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
     <nav id="mainNav">
-      <a href="#home">Beranda</a><a href="#product">Shop</a><a href="#how">How to Order</a><a href="#about">About Us</a><a href="#contact">Contact</a>
+      <a href="#home">Beranda</a><a href="#product">Shop</a><a href="#payment">Pembayaran</a><a href="#how">How to Order</a><a href="#about">About Us</a><a href="#contact">Contact</a>
     </nav>
     <a class="header-cta" href="#product">Shop Now <span>↗</span></a>
   </header>
@@ -78,6 +78,34 @@
           <p class="microcopy">Stok, shade, dan ongkos kirim dikonfirmasi sebelum pembayaran.</p>
         </div>
       </article>
+    </section>
+
+    <section class="section-wrap payment-section" id="payment">
+      <div class="section-heading"><div><p class="eyebrow">DEMO CHECKOUT</p><h2>Choose your <em>payment.</em></h2></div><p>Simulasi pembayaran ecommerce bycaeL. Belum terhubung ke bank atau penyedia QRIS.</p></div>
+      <form class="payment-card" id="paymentForm">
+        <div class="payment-fields">
+          <label>Nama lengkap<input id="buyerName" name="buyerName" autocomplete="name" required placeholder="Nama penerima"></label>
+          <label>Nomor WhatsApp<input id="buyerPhone" name="buyerPhone" inputmode="tel" autocomplete="tel" required placeholder="08xxxxxxxxxx"></label>
+          <label class="payment-address">Alamat pengiriman<textarea id="buyerAddress" name="buyerAddress" rows="3" required placeholder="Jalan, kelurahan, kecamatan, kota"></textarea></label>
+        </div>
+        <div class="payment-methods">
+          <p class="payment-label">PILIH METODE PEMBAYARAN</p>
+          <label class="payment-option"><input type="radio" name="paymentMethod" value="bank" checked><span><b>Transfer Bank</b><small>Simulasi transfer bank</small></span><strong>BANK</strong></label>
+          <label class="payment-option"><input type="radio" name="paymentMethod" value="qris"><span><b>QRIS</b><small>Simulasi pembayaran QRIS</small></span><strong>QRIS</strong></label>
+        </div>
+        <div class="demo-payment-panel" id="bankDemo">
+          <span class="demo-stamp">DATA DUMMY</span><h3>Transfer Bank</h3>
+          <p>Bank BCA — bycaeL (CONTOH)</p><strong class="demo-account">0000 0000 0000</strong>
+          <small>Nomor rekening ini hanya contoh dan tidak dapat digunakan untuk transfer.</small>
+        </div>
+        <div class="demo-payment-panel qris-panel" id="qrisDemo" hidden>
+          <span class="demo-stamp">QRIS DEMO</span><div class="qris-placeholder"><span>QRIS</span><b>DEMO</b><small>BUKAN KODE PEMBAYARAN</small></div>
+          <small>Gambar ini bukan QRIS asli dan tidak dapat dipindai untuk membayar.</small>
+        </div>
+        <div class="payment-total"><span>Subtotal produk (belum termasuk ongkir)</span><strong id="paymentTotal">Rp112.000</strong></div>
+        <button class="button button-dark payment-submit" type="submit">Buat Pesanan Demo <span>↗</span></button>
+        <p class="payment-disclaimer" id="paymentResult" role="status">Mode demo: tidak ada transaksi, transfer, atau pembayaran sungguhan yang diproses.</p>
+      </form>
     </section>
 
     <section class="benefits">
