@@ -35,3 +35,25 @@
 .demo-review blockquote{margin:0;padding:17px 0;border-top:1px solid #eaded5;border-bottom:1px solid #eaded5;font:italic 19px/1.65 var(--serif);color:#4d4038}
 .demo-review-footer{display:flex;flex-direction:column;gap:3px;margin-top:15px;font-size:10px;color:#655a52}
 .demo-review-footer small{font-size:9px;color:#88796f}
+
+
+/* Subtle motion for the ESQA hero */
+@keyframes heroProductFloat{
+  0%,100%{transform:translate3d(0,0,0) rotate(-1deg)}
+  50%{transform:translate3d(0,-9px,0) rotate(1deg)}
+}
+@keyframes heroOrbitDrift{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(7px,-5px,0) scale(1.025)}
+}
+@keyframes heroPillBob{
+  0%,100%{transform:translate3d(0,0,0) rotate(12deg)}
+  50%{transform:translate3d(0,-5px,0) rotate(15deg)}
+}
+.hero-product-image{animation:heroProductFloat 5.5s ease-in-out infinite;will-change:transform}
+.hero-product .art-orbit{animation:heroOrbitDrift 9s ease-in-out infinite}
+.hero-product .orbit-two{animation-delay:-4.5s}
+.hero-product .art-pill{animation:heroPillBob 6s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+ .hero-product-image,.hero-product .art-orbit,.hero-product .art-pill{animation:none!important;will-change:auto}
+}
