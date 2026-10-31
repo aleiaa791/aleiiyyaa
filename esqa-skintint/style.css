@@ -203,3 +203,69 @@
     padding:32px 22px 36px;
   }
 }
+
+
+/* Gentle motion throughout the ESQA storefront */
+@keyframes bycaelFadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes bycaelSoftPulse{
+  0%,100%{opacity:.72;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.035)}
+}
+@keyframes bycaelTicker{
+  0%,100%{opacity:.7}
+  50%{opacity:1}
+}
+html{scroll-behavior:smooth}
+.site-header{transition:box-shadow .3s ease,background .3s ease}
+.site-header nav a,.header-cta,.brand,.text-link{
+  transition:color .25s ease,opacity .25s ease,transform .25s ease;
+}
+.site-header nav a:hover,.header-cta:hover,.text-link:hover{
+  color:var(--accent);
+  transform:translateY(-2px);
+}
+.announcement span{display:inline-block;animation:bycaelSoftPulse 3s ease-in-out infinite}
+.ticker b{display:inline-block;animation:bycaelTicker 3.5s ease-in-out infinite}
+.button,.buy-row button,.shade-swatches button{
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;
+}
+.button:hover,.buy-row button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 9px 22px rgba(74,48,37,.12);
+}
+.product-card,.benefits>div,.steps li,.review-summary,.contact-card{
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.product-card:hover,.review-summary:hover{
+  box-shadow:0 14px 34px rgba(74,48,37,.07);
+}
+.benefits>div:hover,.steps li:hover{
+  transform:translateY(-4px);
+}
+.product-visual img{
+  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.product-visual:hover img{transform:scale(1.035)}
+.shade-guide img{transition:transform .5s ease}
+.shade-guide:hover img{transform:scale(1.015)}
+/* Scroll reveal on browsers supporting view timelines */
+@supports (animation-timeline:view()){
+  .section-heading,.product-card,.benefits>div,.steps li,
+  .review-inner,.review-summary,.contact-details,.footer-inner{
+    animation:bycaelFadeUp both;
+    animation-timeline:view();
+    animation-range:entry 0% entry 22%;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+}
