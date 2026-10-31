@@ -340,3 +340,46 @@ html{scroll-behavior:smooth}
     animation:none!important;
   }
 }
+
+
+/* Moving announcement marquee in the hero's top strip */
+.announcement{
+  display:block;
+  overflow:hidden;
+  white-space:nowrap;
+  text-align:left;
+  padding:10px 0;
+}
+.announcement-track{
+  display:flex;
+  width:max-content;
+  animation:bycaelAnnouncementMarquee 19s linear infinite;
+  will-change:transform;
+}
+.announcement-group{
+  display:flex;
+  flex:0 0 auto;
+  align-items:center;
+  gap:34px;
+  padding-right:34px;
+  font-size:9px;
+  letter-spacing:2.2px;
+}
+.announcement-group b{
+  color:#d5ad9c;
+  font-size:13px;
+  font-weight:400;
+}
+@keyframes bycaelAnnouncementMarquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.announcement:hover .announcement-track{animation-play-state:paused}
+@media(max-width:600px){
+  .announcement-track{animation-duration:14s}
+  .announcement-group{gap:22px;padding-right:22px;font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .announcement-track{animation:none;transform:none}
+  .announcement-group[aria-hidden="true"]{display:none}
+}
