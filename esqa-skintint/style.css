@@ -507,3 +507,39 @@ footer a:hover{display:inline-block;transform:translateY(-3px);color:var(--accen
    opacity:1;transform:none;animation:none!important;filter:none;
  }
 }
+
+
+/* Demo-only ecommerce checkout: bank transfer and QRIS */
+.payment-section{padding-top:82px;padding-bottom:88px}
+.payment-card{max-width:790px;margin:0 auto;background:#fff;border:1px solid var(--line);padding:clamp(22px,4vw,42px);box-shadow:0 18px 45px rgba(74,48,37,.07)}
+.payment-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.payment-fields label{display:grid;gap:7px;font-size:11px;font-weight:700;color:var(--ink)}
+.payment-fields input,.payment-fields textarea{width:100%;border:1px solid var(--line);background:#fffdfa;padding:13px 14px;font:12px var(--sans);color:var(--ink);outline:none}
+.payment-fields input:focus,.payment-fields textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(185,134,121,.13)}
+.payment-address{grid-column:1/-1}
+.payment-fields textarea{resize:vertical}
+.payment-methods{margin-top:30px}
+.payment-label{font-size:9px;letter-spacing:2px;font-weight:700;color:var(--muted);margin:0 0 12px}
+.payment-option{display:flex;align-items:center;gap:13px;border:1px solid var(--line);padding:15px;margin-top:9px;cursor:pointer;transition:border-color .2s,background .2s}
+.payment-option:has(input:checked){border-color:var(--accent);background:#fbf5f1}
+.payment-option input{accent-color:var(--accent)}
+.payment-option span{display:grid;flex:1}
+.payment-option b{font-size:12px}
+.payment-option small{font-size:10px;color:var(--muted)}
+.payment-option strong{font-size:10px;letter-spacing:1.5px;color:var(--accent)}
+.demo-payment-panel{position:relative;margin-top:18px;padding:23px;background:var(--cream);border:1px dashed #c8aa9c}
+.demo-payment-panel h3{font:22px var(--serif);margin:8px 0}
+.demo-payment-panel p,.demo-payment-panel small{font-size:11px;color:var(--muted)}
+.demo-stamp{font-size:8px;letter-spacing:2px;font-weight:700;color:#9a6557}
+.demo-account{display:block;font-size:22px;letter-spacing:2px;margin:7px 0}
+.qris-panel{text-align:center}
+.qris-placeholder{width:190px;height:190px;margin:14px auto;background:#fff;border:7px solid #fff;outline:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background-image:repeating-linear-gradient(45deg,#eee5df 0 7px,#fff 7px 14px)}
+.qris-placeholder span{font-size:22px;font-weight:700;letter-spacing:3px}
+.qris-placeholder b{font:28px var(--serif);background:#fff;padding:2px 12px}
+.qris-placeholder small{font-size:8px;letter-spacing:1px;background:#fff;padding:3px 5px}
+.payment-total{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid var(--line);margin-top:24px;padding:20px 0;font-size:11px}
+.payment-total strong{font:23px var(--serif)}
+.payment-submit{width:100%;justify-content:center;cursor:pointer}
+.payment-disclaimer{font-size:10px;color:var(--muted);text-align:center;margin:13px 0 0}
+.payment-disclaimer.demo-success{color:#477457;font-weight:700}
+@media(max-width:600px){.payment-fields{grid-template-columns:1fr}.payment-address{grid-column:auto}.payment-total{align-items:flex-start;flex-direction:column}.payment-total strong{font-size:25px}}
