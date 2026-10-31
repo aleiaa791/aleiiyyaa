@@ -467,3 +467,43 @@ footer a:hover{display:inline-block;transform:translateY(-3px);color:var(--accen
     transition:none!important;
   }
 }
+
+
+/* Clearly visible reveal effects for every section from reviews to footer */
+@keyframes bycaeLScrollEntrance{
+  0%{opacity:0;transform:translate3d(0,58px,0) scale(.965);filter:blur(3px)}
+  65%{opacity:1;transform:translate3d(0,-7px,0) scale(1.008);filter:blur(0)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+}
+.js-scroll-motion .review-section .review-inner,
+.js-scroll-motion .review-section .review-summary,
+.js-scroll-motion .about-section .about-art,
+.js-scroll-motion .about-section .about-copy,
+.js-scroll-motion .policy-section .section-heading,
+.js-scroll-motion .policy-grid details,
+.js-scroll-motion .contact-section>div,
+.js-scroll-motion footer>*{
+  opacity:0;
+  transform:translateY(58px) scale(.965);
+}
+.js-scroll-motion .motion-visible{
+  animation:bycaeLScrollEntrance .95s cubic-bezier(.18,.8,.25,1) both!important;
+}
+.js-scroll-motion .review-section .review-summary.motion-visible{animation-delay:.12s!important}
+.js-scroll-motion .about-section .about-copy.motion-visible{animation-delay:.12s!important}
+.js-scroll-motion .policy-grid details.motion-visible:nth-child(2){animation-delay:.08s!important}
+.js-scroll-motion .policy-grid details.motion-visible:nth-child(3){animation-delay:.16s!important}
+.js-scroll-motion .policy-grid details.motion-visible:nth-child(4){animation-delay:.24s!important}
+.js-scroll-motion .contact-section>div:nth-child(2).motion-visible{animation-delay:.14s!important}
+@media(prefers-reduced-motion:reduce){
+ .js-scroll-motion .review-section .review-inner,
+ .js-scroll-motion .review-section .review-summary,
+ .js-scroll-motion .about-section .about-art,
+ .js-scroll-motion .about-section .about-copy,
+ .js-scroll-motion .policy-section .section-heading,
+ .js-scroll-motion .policy-grid details,
+ .js-scroll-motion .contact-section>div,
+ .js-scroll-motion footer>*{
+   opacity:1;transform:none;animation:none!important;filter:none;
+ }
+}
