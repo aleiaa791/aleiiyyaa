@@ -9,10 +9,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=site-motion-bold-6">
+  <link rel="stylesheet" href="./style.css?v=announcement-marquee-7">
 </head>
 <body>
-  <div class="announcement">A LITTLE BEAUTY, A LOT OF CONFIDENCE <span>✦</span> SALATIGA, INDONESIA</div>
+  <div class="announcement" aria-label="A little beauty, a lot of confidence — Salatiga, Indonesia">
+    <div class="announcement-track">
+      <div class="announcement-group"><span>A LITTLE BEAUTY, A LOT OF CONFIDENCE</span><b>✦</b><span>SALATIGA, INDONESIA</span><b>✦</b></div>
+      <div class="announcement-group" aria-hidden="true"><span>A LITTLE BEAUTY, A LOT OF CONFIDENCE</span><b>✦</b><span>SALATIGA, INDONESIA</span><b>✦</b></div>
+    </div>
+  </div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="bycaeL beranda">bycaeL<span>.</span><small>BEAUTY & SKINCARE</small></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
