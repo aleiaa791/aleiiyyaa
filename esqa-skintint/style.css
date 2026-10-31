@@ -16,3 +16,22 @@
 
 /* Product photography in homepage hero */
 .hero-product{isolation:isolate;background:linear-gradient(145deg,#eadbd2,#d9c2b6)}.hero-product-image{position:relative;z-index:1;display:block;width:min(68%,360px);height:350px;object-fit:contain;filter:drop-shadow(0 22px 24px rgba(65,43,34,.18));mix-blend-mode:multiply}.hero-product .art-orbit{z-index:-0;pointer-events:none}.hero-product .art-caption,.hero-product .art-pill,.hero-product .art-bottom{z-index:2}@media(max-width:760px){.hero-product{min-height:340px}.hero-product-image{width:min(72%,300px);height:280px}.hero-grid{gap:30px}}
+
+
+/* Center the ESQA shade chooser without changing the product layout */
+.product-info .shade-label{text-align:center;font-weight:600;margin-top:22px}
+.product-info .shade-guide{width:100%;max-width:560px;margin:0 auto 17px}
+.product-info .shade-swatches{width:100%;max-width:560px;margin:12px auto 10px;justify-content:center}
+.product-info .shade-note{max-width:560px;margin:0 auto 13px;text-align:center}
+.product-info #shade{display:block;width:100%;max-width:560px;margin:0 auto}
+@media(max-width:700px){
+ .product-info .shade-guide,.product-info .shade-swatches,.product-info .shade-note,.product-info #shade{max-width:560px}
+}
+
+/* Clearly identified sample review; no fabricated customer rating */
+.demo-review{border-radius:2px}
+.demo-review-label{font-size:9px;letter-spacing:2px;color:#9a7769;font-weight:700}
+.demo-stars{color:#b78342;letter-spacing:3px;font-size:16px;margin:14px 0}
+.demo-review blockquote{margin:0;padding:17px 0;border-top:1px solid #eaded5;border-bottom:1px solid #eaded5;font:italic 19px/1.65 var(--serif);color:#4d4038}
+.demo-review-footer{display:flex;flex-direction:column;gap:3px;margin-top:15px;font-size:10px;color:#655a52}
+.demo-review-footer small{font-size:9px;color:#88796f}
