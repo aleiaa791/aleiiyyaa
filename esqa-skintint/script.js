@@ -22,3 +22,25 @@ document.querySelectorAll(".shade-swatches [data-shade]").forEach((chip) => {
 shadeSelect.addEventListener("change", () => {
   document.querySelectorAll(".shade-swatches [data-shade]").forEach((chip) => chip.classList.toggle("active", chip.dataset.shade === shadeSelect.value));
 });
+
+
+/* Reliable scroll-triggered entrance animation (reviews through footer) */
+(() => {
+  const targets = document.querySelectorAll(
+    ".review-section .review-inner, .review-section .review-summary, " +
+    ".about-section .about-art, .about-section .about-copy, " +
+    ".policy-section .section-heading, .policy-grid details, " +
+    ".contact-section > div, footer > *"
+  );
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.documentElement.classList.add("js-scroll-motion");
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("motion-visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -45px 0px" });
+  targets.forEach(target => observer.observe(target));
+})();
