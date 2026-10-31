@@ -543,3 +543,12 @@ footer a:hover{display:inline-block;transform:translateY(-3px);color:var(--accen
 .payment-disclaimer{font-size:10px;color:var(--muted);text-align:center;margin:13px 0 0}
 .payment-disclaimer.demo-success{color:#477457;font-weight:700}
 @media(max-width:600px){.payment-fields{grid-template-columns:1fr}.payment-address{grid-column:auto}.payment-total{align-items:flex-start;flex-direction:column}.payment-total strong{font-size:25px}}
+
+
+/* Business registration placeholder and social profile links */
+.business-registration em{display:block;margin-top:4px;font-size:9px;line-height:1.5;color:var(--muted);font-style:normal}
+.social-links{display:flex;justify-content:center;align-items:center;gap:22px;margin:18px auto 10px}
+.social-links a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:10px;color:var(--muted);transition:color .25s,transform .25s}
+.social-links a:hover{color:var(--accent);transform:translateY(-3px)}
+.social-links svg{width:19px;height:19px;display:block}
+@media(max-width:600px){.social-links{gap:18px}.business-registration{max-width:100%}}
