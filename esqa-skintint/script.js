@@ -44,3 +44,30 @@ shadeSelect.addEventListener("change", () => {
   }, { threshold: 0.12, rootMargin: "0px 0px -45px 0px" });
   targets.forEach(target => observer.observe(target));
 })();
+
+
+/* Demo checkout controls; deliberately does not initiate real payments */
+(() => {
+  const form=document.getElementById("paymentForm");
+  if(!form)return;
+  const bank=document.getElementById("bankDemo");
+  const qris=document.getElementById("qrisDemo");
+  const result=document.getElementById("paymentResult");
+  const total=document.getElementById("paymentTotal");
+  const updateTotal=()=>{const qty=Number(document.getElementById("qty")?.textContent||1);total.textContent=new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(112000*qty);};
+  document.querySelectorAll('input[name="paymentMethod"]').forEach(input=>input.addEventListener("change",()=>{
+    const isQris=input.value==="qris"&&input.checked;
+    qris.hidden=!isQris;bank.hidden=isQris;
+    result.textContent="Mode demo: tidak ada transaksi, transfer, atau pembayaran sungguhan yang diproses.";
+  }));
+  document.getElementById("plus")?.addEventListener("click",updateTotal);
+  document.getElementById("minus")?.addEventListener("click",updateTotal);
+  form.addEventListener("submit",event=>{
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    const method=form.querySelector('input[name="paymentMethod"]:checked').value==="bank"?"Transfer Bank (dummy)":"QRIS (dummy)";
+    result.classList.add("demo-success");
+    result.textContent="Pesanan demo dibuat untuk "+document.getElementById("buyerName").value+". Metode: "+method+". Ini hanya simulasi; jangan transfer atau mengirim bukti pembayaran. Hubungi WhatsApp toko untuk pesanan sungguhan.";
+  });
+  updateTotal();
+})();
