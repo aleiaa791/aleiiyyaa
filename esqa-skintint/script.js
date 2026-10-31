@@ -12,3 +12,13 @@ const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("mainNav");
 menuToggle.addEventListener("click", () => { const open = nav.classList.toggle("open"); menuToggle.setAttribute("aria-expanded", String(open)); menuToggle.textContent = open ? "×" : "☰"; });
 nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => { nav.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); menuToggle.textContent = "☰"; }));
+const shadeSelect = document.getElementById("shade");
+document.querySelectorAll(".shade-swatches [data-shade]").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    shadeSelect.value = chip.dataset.shade;
+    document.querySelectorAll(".shade-swatches [data-shade]").forEach((item) => item.classList.toggle("active", item === chip));
+  });
+});
+shadeSelect.addEventListener("change", () => {
+  document.querySelectorAll(".shade-swatches [data-shade]").forEach((chip) => chip.classList.toggle("active", chip.dataset.shade === shadeSelect.value));
+});
