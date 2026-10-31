@@ -180,3 +180,26 @@
  .product-info .shade-swatches{grid-template-columns:repeat(2,minmax(0,1fr))}
  .product-info .shade-swatches button{min-height:68px;flex-direction:row;justify-content:flex-start;padding:9px 12px}
 }
+
+
+/* Remove the empty left column feel on the ESQA product card */
+.product-card{
+  grid-template-columns:minmax(0,1fr);
+}
+.product-card .product-info{
+  width:100%;
+  max-width:none;
+  justify-self:stretch;
+  padding:clamp(32px,5vw,58px) clamp(24px,6vw,88px) 48px;
+}
+.product-card .product-description{
+  max-width:620px;
+}
+.product-card .product-facts{
+  width:100%;
+}
+@media(max-width:600px){
+  .product-card .product-info{
+    padding:32px 22px 36px;
+  }
+}
