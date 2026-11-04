@@ -131,12 +131,12 @@ document.getElementById("paymentForm")?.addEventListener("submit", event => {
     ...lines,
     "",
     "Subtotal: " + rupiah(totalPrice()),
-    "Metode pembayaran: " + (document.querySelector('input[name="paymentMethod"]:checked')?.value || "Transfer Bank") + " (simulasi)",
+    "Metode pembayaran: " + (document.querySelector('input[name="paymentMethod"]:checked')?.value || "Transfer Bank") + "",
     "Nama: " + document.getElementById("buyerName").value.trim(),
     "WhatsApp: " + document.getElementById("buyerPhone").value.trim(),
     "Alamat: " + document.getElementById("buyerAddress").value.trim(),
     "",
-    "Mohon konfirmasi stok dan ongkos kirim. Saya akan menunggu detail pembayaran sebelum transfer. Terima kasih."
+    "Mohon konfirmasi ketersediaan produk, ongkos kirim, total pembayaran, dan detail pembayaran resmi. Terima kasih."
   ].join("\n");
   window.open("https://wa.me/" + waNumber + "?text=" + encodeURIComponent(message), "_blank", "noopener");
 });
