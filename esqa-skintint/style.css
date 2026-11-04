@@ -552,3 +552,34 @@ footer a:hover{display:inline-block;transform:translateY(-3px);color:var(--accen
 .social-links a:hover{color:var(--accent);transform:translateY(-3px)}
 .social-links svg{width:19px;height:19px;display:block}
 @media(max-width:600px){.social-links{gap:18px}.business-registration{max-width:100%}}
+
+
+/* Shopping cart and review-before-checkout flow */
+.cart-card{max-width:850px;margin:0 auto;padding:clamp(20px,4vw,38px);background:#f8f3ee;border:1px solid var(--line)}
+.cart-items{display:grid;gap:0}
+.cart-empty{margin:0;padding:26px 0;color:var(--muted);font-size:12px;text-align:center}
+.cart-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid var(--line)}
+.cart-item-info{display:grid;gap:5px}
+.cart-item-info b{font:500 18px var(--serif)}
+.cart-item-info small{font-size:10px;color:var(--muted)}
+.cart-item-controls{display:flex;align-items:center;gap:10px}
+.cart-item-controls button{width:30px;height:30px;border:1px solid var(--line);background:#fffdfa;color:var(--ink);cursor:pointer}
+.cart-item-controls button:disabled{opacity:.4;cursor:not-allowed}
+.cart-item-controls span{min-width:16px;text-align:center;font-size:11px}
+.cart-item-controls .cart-remove{width:auto;border:0;background:transparent;color:#9a6557;font-size:10px;text-decoration:underline}
+.cart-item-price{font:500 16px var(--serif);white-space:nowrap}
+.cart-summary{display:flex;justify-content:space-between;align-items:center;padding:22px 0 8px;font-size:12px}
+.cart-summary strong{font:600 25px var(--serif)}
+.cart-note{margin:0 0 20px;color:var(--muted);font-size:10px}
+.cart-checkout{width:100%;justify-content:center;cursor:pointer}
+.cart-checkout:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.payment-section{background:#fcf9f6}
+.payment-card{margin-top:0}
+.payment-submit{cursor:pointer}
+@media(max-width:600px){
+ .cart-item{grid-template-columns:1fr auto;gap:12px}
+ .cart-item-info{grid-column:1/-1}
+ .cart-item-controls{justify-content:flex-start}
+ .cart-item-price{justify-self:end}
+ .cart-summary strong{font-size:23px}
+}
