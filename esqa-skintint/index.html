@@ -92,18 +92,24 @@
     </section>
 
     <section class="section-wrap payment-section" id="payment">
-      <div class="section-heading"><div><p class="eyebrow">DEMO CHECKOUT</p><h2>Choose your <em>payment.</em></h2></div><p>Simulasi pembayaran ecommerce bycaeL. Belum terhubung ke bank atau penyedia QRIS.</p></div>
-      <form class="payment-card" id="paymentForm">
-        <div class="payment-fields">
-          <label>Nama lengkap<input id="buyerName" name="buyerName" autocomplete="name" required placeholder="Nama penerima"></label>
-          <label>Nomor WhatsApp<input id="buyerPhone" name="buyerPhone" inputmode="tel" autocomplete="tel" required placeholder="08xxxxxxxxxx"></label>
-          <label class="payment-address">Alamat pengiriman<textarea id="buyerAddress" name="buyerAddress" rows="3" required placeholder="Jalan, kelurahan, kecamatan, kota"></textarea></label>
-        </div>
-        <div class="payment-total"><span>Total sementara (belum termasuk ongkir)</span><strong id="paymentTotal">Rp0</strong></div>
-        <button class="button button-dark payment-submit" type="submit">Konfirmasi Pesanan via WhatsApp <span>↗</span></button>
-        <p class="payment-disclaimer" id="paymentResult" role="status">WhatsApp baru akan terbuka setelah kamu memeriksa keranjang dan menekan tombol konfirmasi ini.</p>
-      </form>
-    </section>
+  <div class="section-heading"><div><p class="eyebrow">DEMO CHECKOUT</p><h2>Choose your <em>payment.</em></h2></div><p>Simulasi pembayaran ecommerce bycaeL. Belum terhubung ke bank atau penyedia QRIS.</p></div>
+  <form class="payment-card" id="paymentForm">
+    <div class="payment-fields">
+      <label>Nama lengkap<input id="buyerName" name="buyerName" autocomplete="name" required placeholder="Nama penerima"></label>
+      <label>Nomor WhatsApp<input id="buyerPhone" name="buyerPhone" inputmode="tel" autocomplete="tel" required placeholder="08xxxxxxxxxx"></label>
+      <label class="payment-address">Alamat pengiriman<textarea id="buyerAddress" name="buyerAddress" rows="3" required placeholder="Jalan, kelurahan, kecamatan, kota"></textarea></label>
+    </div>
+    <div class="payment-methods"><p class="payment-label">PILIH METODE PEMBAYARAN</p>
+      <label class="payment-option"><input type="radio" name="paymentMethod" value="Transfer Bank" checked><span><b>Transfer Bank</b><small>Simulasi transfer bank</small></span><strong>BANK</strong></label>
+      <label class="payment-option"><input type="radio" name="paymentMethod" value="QRIS"><span><b>QRIS</b><small>Simulasi pembayaran QRIS</small></span><strong>QRIS</strong></label>
+    </div>
+    <div class="demo-payment-panel" id="bankDemo"><span class="demo-stamp">DATA DUMMY</span><h3>Transfer Bank</h3><p>Bank BCA — bycaeL (CONTOH)</p><strong class="demo-account">0000 0000 0000</strong><small>Nomor rekening ini hanya contoh dan tidak dapat digunakan untuk transfer.</small></div>
+    <div class="demo-payment-panel qris-panel" id="qrisDemo" hidden><span class="demo-stamp">QRIS DEMO</span><div class="qris-placeholder"><span>QRIS</span><b>DEMO</b><small>BUKAN KODE PEMBAYARAN</small></div><small>Gambar ini bukan QRIS asli dan tidak dapat dipindai untuk membayar.</small></div>
+    <div class="payment-total"><span>Subtotal produk (belum termasuk ongkir)</span><strong id="paymentTotal">Rp112.000</strong></div>
+    <button class="button button-dark payment-submit" type="submit">Buat Pesanan Demo <span>↗</span></button>
+    <p class="payment-disclaimer" id="paymentResult" role="status">Mode demo: tidak ada transaksi, transfer, atau pembayaran sungguhan yang diproses.</p>
+  </form>
+</section>
 
     <section class="benefits">
       <div><span>01</span><h3>Curated with care</h3><p>Pilihan produk kecantikan yang dikurasi dengan perhatian.</p></div>
