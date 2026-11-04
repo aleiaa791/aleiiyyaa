@@ -149,6 +149,74 @@ footer{color:#9db2cf}
 .brand-orb{position:absolute;right:15px;top:48px;width:112px;height:112px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#7dd3fc,#2563eb);color:#09213e;font-size:58px;box-shadow:0 0 40px rgba(96,165,250,.3)}
 @media(max-width:720px){.hero{min-height:0}.hero-visual{height:330px}.mock-shirt{width:135px;height:170px;left:0}.mock-poster{width:145px;height:195px;right:0}.mock-poster strong{font-size:34px}.mock-card{width:140px;height:105px;left:28%}.mock-card b{font-size:20px}.showcase-grid{grid-template-columns:1fr 1fr}.tile-poster{grid-row:span 2}.showcase-tile{min-height:230px;padding:16px}.tile-poster>b{font-size:48px}.tile-brand>b{font-size:32px}.brand-orb{width:75px;height:75px;font-size:38px}}
 @media(max-width:420px){.showcase-grid{gap:10px}.tile-poster{min-height:260px}.tile-shirt,.tile-brand{min-height:190px}.mock-shirt{left:-2%}.mock-poster{right:-2%}}
+
+/* RESPONSIVE PRESISI — katalog dan seluruh layout */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,svg,video,canvas{max-width:100%}
+section,nav,.hero,.showcase,.showcase-grid,.grid,.svc,.card{min-width:0}
+#layanan{scroll-margin-top:85px}
+#layanan .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(12px,2vw,22px);align-items:stretch}
+#layanan .svc{width:100%;min-width:0;height:100%;display:flex;flex-direction:column;overflow:hidden;overflow-wrap:anywhere}
+#layanan .svc-art{width:100%;flex:0 0 auto;height:clamp(145px,18vw,190px)}
+#layanan .svc h3{line-height:1.2;overflow-wrap:anywhere}
+#layanan .svc p{min-height:0;flex:1;line-height:1.5;overflow-wrap:anywhere}
+#layanan .svc .pr{line-height:1.3;margin-top:8px}
+#layanan .svc button{flex:0 0 auto;min-height:44px;white-space:normal;line-height:1.25}
+.hero>*{min-width:0}
+.hero-visual{width:100%;min-width:0}
+.showcase-grid>*{min-width:0}
+.item>*{min-width:0}
+input,textarea,button{max-width:100%;font:inherit}
+button,.btn{touch-action:manipulation}
+@media(min-width:1100px){
+ section{max-width:1120px}
+ #layanan .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(min-width:721px) and (max-width:1099px){
+ section{padding-left:clamp(20px,4vw,42px);padding-right:clamp(20px,4vw,42px)}
+ #layanan .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:720px){
+ nav{padding:11px 4%;gap:8px}
+ .logo{font-size:clamp(1rem,4vw,1.2rem)}
+ .hero{gap:12px}
+ section{padding:clamp(30px,7vw,46px) clamp(14px,4vw,22px)}
+ #layanan .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,2.5vw,16px)}
+ #layanan .svc{padding-bottom:clamp(12px,3vw,18px)}
+ #layanan .svc-art{height:clamp(118px,27vw,165px)}
+ #layanan .svc h3{font-size:clamp(.98rem,2.7vw,1.15rem)}
+ #layanan .svc p{font-size:clamp(.78rem,2.2vw,.9rem);min-height:0}
+ #layanan .svc h3,#layanan .svc p,#layanan .svc .pr{margin-left:clamp(10px,2.5vw,16px);margin-right:clamp(10px,2.5vw,16px)}
+ #layanan .svc .ic{margin-left:clamp(10px,2.5vw,16px)}
+ #layanan .svc button{margin:12px clamp(10px,2.5vw,16px) 0;width:calc(100% - 2 * clamp(10px,2.5vw,16px));padding:9px 6px;font-size:clamp(.78rem,2.2vw,.9rem)}
+ .item{grid-template-columns:28px minmax(0,1fr) auto;gap:8px}
+ .item>div:nth-child(2){min-width:0}
+ .item input{min-width:0}
+}
+@media(max-width:380px){
+ #layanan .grid{grid-template-columns:minmax(0,1fr)}
+ #layanan .svc-art{height:clamp(155px,48vw,190px)}
+ #layanan .svc h3{font-size:1.15rem}
+ #layanan .svc p{font-size:.92rem}
+ #layanan .svc button{font-size:.95rem}
+ .showcase-grid{grid-template-columns:minmax(0,1fr)}
+ .tile-poster{grid-row:auto;min-height:245px}
+ .tile-shirt,.tile-brand{min-height:220px}
+ .hero-visual{height:290px}
+ .mock-shirt{width:115px;height:150px}
+ .mock-poster{width:125px;height:175px}
+ .mock-poster strong{font-size:30px}
+ .mock-card{width:125px;height:95px;left:26%}
+ .mock-card b{font-size:18px}
+ .visual-caption{right:2%;font-size:8px;letter-spacing:2px}
+ .two{grid-template-columns:minmax(0,1fr)}
+ .payopts{grid-template-columns:minmax(0,1fr)}
+}
+@media(min-width:381px) and (max-width:560px){
+ #layanan .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 </style></head>
 <body>
 <div class="tick">DESAIN CUSTOM SESUAI KEINGINANMU ✦ KAOS · BANNER · PAMFLET · DAN LAINNYA ✦</div>
