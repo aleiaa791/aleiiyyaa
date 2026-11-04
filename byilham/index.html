@@ -8,25 +8,40 @@
 :root{--bg:#fff3f6;--card:#fff;--ink:#5a3a4a;--soft:#9a7487;--pink:#ff8fb1;--pink2:#ffd1e0;--mint:#bff0e0;--sun:#ffe9a8;--lilac:#dcd0ff;--line:#ffc4d6}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Nunito, sans-serif}h1,h2,h3,button,.btn,.logo{font-family:Fredoka,sans-serif}a{color:inherit}.tick{text-align:center;background:var(--pink);color:white;padding:7px;font-weight:bold;font-size:.85rem}nav{position:sticky;top:0;background:var(--bg);border-bottom:3px dotted var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 5%;z-index:5}.logo{font-size:1.25rem;color:var(--pink);font-weight:bold;text-decoration:none}.links{display:flex;gap:12px}.links a{background:var(--pink2);border-radius:30px;padding:5px 12px;text-decoration:none;font-weight:bold}.cartb{background:var(--sun);border:2px solid var(--ink);border-radius:30px;padding:5px 12px;text-decoration:none}section{max-width:980px;margin:auto;padding:48px 20px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.hero h1{font-size:clamp(2.2rem,7vw,3.6rem);line-height:1.1}.hero p,.sub,.note{color:var(--soft)}.tag{display:inline-block;background:var(--lilac);border-radius:30px;padding:3px 13px;font-size:.85rem;font-weight:bold}.btn{display:inline-block;background:var(--pink);color:white;border:0;border-radius:30px;padding:11px 22px;text-decoration:none;font-size:1rem;cursor:pointer;box-shadow:0 4px #e0658d}.btn.alt{background:white;color:var(--ink);box-shadow:0 4px var(--line);margin-left:8px}.blob{margin:auto;width:min(300px,80vw);aspect-ratio:1;border-radius:48%;background:var(--sun);display:grid;place-items:center;font-size:7rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.svc,.card{background:var(--card);border:3px solid var(--ink);border-radius:24px;padding:18px;box-shadow:5px 5px var(--pink2)}.svc{display:flex;flex-direction:column}.svc .ic{font-size:2rem}.svc p{color:var(--soft);flex:1}.pr{color:var(--pink);font:bold 1.1rem Fredoka}.svc button{margin-top:12px}.item{display:grid;grid-template-columns:40px 1fr auto auto;gap:10px;align-items:center;padding:12px 0;border-bottom:2px dotted var(--line)}.dot{font-size:1.5rem}.qty{display:flex;gap:8px;align-items:center}.qty button{border:0;border-radius:50%;background:var(--pink);color:white;width:28px;height:28px}.rm{border:0;background:none}.sum{display:flex;justify-content:space-between;font:bold 1.1rem Fredoka;padding:15px 0}label{display:block;font-weight:bold;margin:10px 0 4px}input,textarea{width:100%;padding:11px;border:2px solid var(--line);border-radius:14px;background:var(--bg);font:inherit;color:var(--ink)}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{width:100%;text-align:center;margin-top:12px}.steps,.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}.steps li,.three div{background:var(--card);padding:18px;border:2px solid var(--line);border-radius:20px}.three div:nth-child(2){background:var(--lilac)}.three div:nth-child(3){background:var(--sun)}details{background:white;border:2px solid var(--line);padding:14px;border-radius:16px;margin:10px 0}summary{font:bold 1.1rem Fredoka;cursor:pointer}.contact{text-align:center}footer{text-align:center;padding:25px;color:var(--soft)}footer a{margin:8px}@media(max-width:720px){.hero{grid-template-columns:1fr}.links{display:none}.two{grid-template-columns:1fr}.item{grid-template-columns:32px 1fr auto}.item .qty{grid-column:2}.blob{font-size:5rem}}
 
-/* ANIMASI */
-@keyframes masuk {from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes melayang {0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-16px) rotate(3deg)}}
-@keyframes berkilau {0%,100%{box-shadow:0 0 0 0 rgba(255,143,177,.25)}50%{box-shadow:0 0 0 16px rgba(255,143,177,0)}}
-@keyframes geser {from{transform:translateX(-18px);opacity:0}to{transform:translateX(0);opacity:1}}
-.hero>div:first-child{animation:masuk .85s ease both}
-.hero .blob{animation:melayang 4s ease-in-out infinite,berkilau 3s ease-in-out infinite}
-.tick{background-size:200% 100%;animation:geser .7s ease both}
-nav{animation:masuk .65s ease both}
+/* ANIMASI HIDUP & INTERAKTIF */
+@keyframes masuk{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes melayang{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-19px) rotate(4deg)}}
+@keyframes aura{0%,100%{box-shadow:0 0 0 0 rgba(255,143,177,.22),0 14px 35px rgba(255,143,177,.16)}50%{box-shadow:0 0 0 20px rgba(255,143,177,0),0 20px 45px rgba(220,208,255,.45)}}
+@keyframes pita{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes pop{0%,100%{transform:scale(1) rotate(0)}35%{transform:scale(1.16) rotate(-8deg)}70%{transform:scale(1.08) rotate(6deg)}}
+@keyframes naikTurun{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes shine{0%{left:-130%}100%{left:140%}}
+@keyframes masukKiri{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:translateX(0)}}
+.tick{background:linear-gradient(100deg,var(--pink),#d9a9ff,var(--pink),#ffb5ca);background-size:220% 100%;animation:pita 7s linear infinite,masuk .7s ease both}
+nav{animation:masuk .7s ease both}
+.hero>div:first-child{animation:masukKiri .9s cubic-bezier(.2,.8,.2,1) both}
+.hero .blob{position:relative;animation:melayang 4s ease-in-out infinite,aura 3.5s ease-in-out infinite}
+.hero .blob:before,.hero .blob:after{position:absolute;content:"✦";color:var(--pink);font-size:2rem;animation:pop 2.8s ease-in-out infinite}
+.hero .blob:before{top:8%;right:4%}.hero .blob:after{bottom:12%;left:2%;animation-delay:1s}
 section{animation:masuk .8s ease both}
-.svc,.card,.steps li,.three div,details{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
-.svc:hover,.card:hover,.steps li:hover,.three div:hover{transform:translateY(-7px);box-shadow:8px 10px var(--pink2)}
-.btn{transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
-.btn:hover{transform:translateY(-3px);filter:saturate(1.12);box-shadow:0 7px #e0658d}
-.btn:active{transform:translateY(1px)}
-.links a,.cartb{transition:transform .2s ease,background .2s ease}
-.links a:hover,.cartb:hover{transform:translateY(-3px) scale(1.04);background:var(--sun)}
-.svc:nth-child(2n){transition-delay:.04s}
-.svc:nth-child(3n){transition-delay:.08s}
+.svc,.card,.steps li,.three div,details{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,border-color .3s ease}
+.svc{position:relative;overflow:hidden;animation:masuk .7s ease both}
+.svc:before{content:"";position:absolute;top:0;bottom:0;left:-130%;width:65%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-18deg);pointer-events:none}
+.svc:hover:before{animation:shine .8s ease}
+.svc:hover,.card:hover,.steps li:hover,.three div:hover{transform:translateY(-9px) rotate(-.6deg);box-shadow:8px 12px 0 var(--pink2);border-color:var(--pink)}
+.svc .ic{display:inline-block;transform-origin:center;animation:naikTurun 3s ease-in-out infinite}
+.svc:nth-child(2n) .ic{animation-delay:.5s}.svc:nth-child(3n) .ic{animation-delay:1s}
+.svc:nth-child(2){animation-delay:.08s}.svc:nth-child(3){animation-delay:.16s}.svc:nth-child(4){animation-delay:.24s}.svc:nth-child(5){animation-delay:.32s}.svc:nth-child(6){animation-delay:.4s}
+.btn{position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+.btn:after{content:"";position:absolute;top:-30%;bottom:-30%;left:-130%;width:55%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg)}
+.btn:hover:after{animation:shine .65s ease}
+.btn:hover{transform:translateY(-4px) scale(1.025);filter:saturate(1.2);box-shadow:0 8px #e0658d}
+.btn:active{transform:translateY(1px) scale(.98)}
+.links a,.cartb{transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+.links a:hover,.cartb:hover{transform:translateY(-4px) rotate(-2deg);background:var(--sun);box-shadow:0 5px var(--line)}
+.tag{animation:naikTurun 4s ease-in-out infinite}
+details[open]{animation:masuk .35s ease both}
+input:focus,textarea:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,143,177,.18)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style></head>
 <body>
