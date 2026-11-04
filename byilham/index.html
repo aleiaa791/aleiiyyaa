@@ -649,6 +649,20 @@ body.cart-open #cartOverlay{opacity:1;visibility:visible;transition-delay:0s,0s}
 @media(max-width:520px){#cart{width:94vw!important;padding:30px 18px 24px!important;border-radius:22px 0 0 22px!important}}
 @media(prefers-reduced-motion:reduce){#cart,#cartOverlay{transition:none!important;will-change:auto}}
 
+
+/* Perbaikan drawer: animasi khusus agar tidak bentrok dengan scroll-reveal section */
+@keyframes cartDrawerIn{
+  0%{transform:translate3d(105%,0,0);opacity:.75}
+  65%{transform:translate3d(-1.5%,0,0);opacity:1}
+  82%{transform:translate3d(.6%,0,0)}
+  100%{transform:translate3d(0,0,0);opacity:1}
+}
+#cart{animation:none!important;transition:transform .55s cubic-bezier(.22,.72,.18,1),opacity .35s ease,visibility 0s linear .55s!important}
+body.cart-open #cart{animation:cartDrawerIn .82s cubic-bezier(.2,.75,.2,1) both!important;transition-delay:0s!important}
+#cartOverlay{transition:opacity .55s ease,visibility 0s linear .55s!important}
+body.cart-open #cartOverlay{transition-delay:0s!important}
+@media(prefers-reduced-motion:reduce){body.cart-open #cart{animation:none!important}}
+
 </style></head>
 <body>
 <nav><a class="logo" href="#home">ilhammaulana 🎨</a><div class="links"><a href="#home">Beranda</a><a href="#layanan">Layanan</a><a href="#how">Cara Pesan</a><a href="#about">Tentang</a><a href="#faq">FAQ</a><a href="#contact">Kontak</a></div><a class="cartb" id="cartOpen" href="#cart" aria-label="Buka keranjang">🛒 <span id="cnt">0</span></a></nav>
@@ -700,7 +714,7 @@ $("send").onclick=()=>{if(!cart.length){$("smsg").textContent="Keranjang masih k
 /* Scroll reveal aktif dari Hero sampai footer */
 (function(){
  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const targets=document.querySelectorAll('section, .showcase-tile, #layanan .svc, #cart .card, #checkout .card, .steps li, .three div, #faq details, footer');
+ const targets=document.querySelectorAll('section:not(#cart), .showcase-tile, #layanan .svc, #cart .card, #checkout .card, .steps li, .three div, #faq details, footer');
  if(!reduced){
   document.documentElement.classList.add('has-motion');
   targets.forEach((el,i)=>{el.classList.add('reveal');if(el.matches('.showcase-tile'))el.classList.add(i%2?'reveal-right':'reveal-left')});
