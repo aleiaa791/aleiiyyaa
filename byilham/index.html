@@ -110,12 +110,51 @@ footer{color:#9db2cf}
 #layanan .svc:nth-child(2n){animation-delay:.12s}
 #layanan .svc:nth-child(3n){animation-delay:.24s}
 @media(max-width:560px){#layanan .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#layanan .svc-art{height:135px}#layanan .svc{border-radius:18px}#layanan .svc h3{font-size:1.05rem}#layanan .svc p{font-size:.88rem;min-height:70px}#layanan .svc h3,#layanan .svc p,#layanan .svc .pr{margin-left:12px;margin-right:12px}#layanan .svc .ic{margin-left:12px}#layanan .svc button{margin:12px 12px 0;width:calc(100% - 24px);padding:9px 8px;font-size:.9rem}}
+
+/* Editorial visual direction inspired by playful portfolio websites */
+.hero{min-height:590px;position:relative}
+.hero h1{font-size:clamp(2.7rem,7vw,4.8rem);letter-spacing:-.04em;max-width:650px}
+.hero h1:after{content:"";display:block;width:115px;height:7px;margin-top:16px;border-radius:20px;background:linear-gradient(90deg,#60a5fa,#f5bd4f)}
+.hero-visual{height:440px;position:relative;display:grid;place-items:center;isolation:isolate}
+.hero-visual:before{content:"";position:absolute;width:310px;height:310px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.34),rgba(30,64,115,.12) 55%,transparent 72%);filter:blur(5px);z-index:-1}
+.orbit{position:absolute;border:1px solid rgba(147,197,253,.28);border-radius:50%;transform:rotate(-22deg)}
+.orbit-a{width:360px;height:190px}.orbit-b{width:420px;height:250px;transform:rotate(35deg)}
+.mock{position:absolute;display:flex;flex-direction:column;justify-content:center;box-shadow:0 25px 45px rgba(0,0,0,.38);transition:transform .4s ease}
+.mock-shirt{width:178px;height:220px;left:4%;top:14%;background:linear-gradient(145deg,#f4c85c,#d58d37);color:#15243a;clip-path:polygon(24% 0,40% 8%,60% 8%,76% 0,100% 20%,84% 43%,75% 35%,75% 100%,25% 100%,25% 35%,16% 43%,0 20%);align-items:center;text-align:center;transform:rotate(-13deg);padding-top:25px}
+.mock-shirt span{font-size:10px;letter-spacing:4px}.mock-shirt b{font:700 27px/ .9 Fredoka}.mock-shirt small{font-size:8px;letter-spacing:2px;margin-top:12px}
+.mock-poster{width:190px;height:250px;right:2%;top:7%;padding:22px;background:linear-gradient(145deg,#ed6b52,#a82d53);color:#fff;transform:rotate(10deg)}
+.mock-poster small{font-size:9px;letter-spacing:3px}.mock-poster strong{font:700 44px/.88 Fredoka;letter-spacing:-2px;margin-top:20px}.mock-poster i{font-size:42px;align-self:flex-end}
+.mock-card{width:175px;height:125px;left:31%;bottom:7%;padding:17px;background:linear-gradient(135deg,#c3e6dc,#4e9d94);color:#092c36;transform:rotate(-5deg);z-index:2}
+.mock-card span{font-size:20px}.mock-card b{font:700 24px/.9 Fredoka}.mock-card small{font-size:8px;letter-spacing:2px;margin-top:8px}
+.visual-spark{position:absolute;color:#f5bd4f;font-size:35px;animation:pop 2.5s infinite}.spark-a{top:5%;left:35%}.spark-b{bottom:18%;right:5%;animation-delay:.8s}
+.visual-caption{position:absolute;bottom:0;right:8%;font-size:9px;letter-spacing:4px;color:#8fb9ed}
+.hero-visual:hover .mock-shirt{transform:translateY(-9px) rotate(-16deg)}.hero-visual:hover .mock-poster{transform:translateY(8px) rotate(13deg)}.hero-visual:hover .mock-card{transform:translateY(-12px) rotate(-2deg)}
+.showcase{max-width:1080px;padding-top:28px}
+.showcase-head{text-align:center;margin-bottom:28px}
+.showcase-head h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:14px 0}
+.showcase-head h2 em{font-style:normal;color:#83baff}
+.showcase-grid{display:grid;grid-template-columns:1.1fr .9fr 1fr;gap:16px}
+.showcase-tile{min-height:300px;border-radius:24px;padding:22px;position:relative;overflow:hidden;box-shadow:0 18px 36px rgba(0,0,0,.25);transition:transform .35s ease}
+.showcase-tile:hover{transform:translateY(-9px) rotate(-1deg)}
+.showcase-tile>span{font-size:10px;letter-spacing:2px;font-weight:800}
+.tile-poster{background:linear-gradient(145deg,#f36e51,#a42e58);color:#fff}
+.tile-poster>b{display:block;font:700 clamp(42px,6vw,68px)/.82 Fredoka;letter-spacing:-3px;margin-top:30px}
+.tile-poster>b i{color:#f7d56b;font-style:normal}
+.showcase-tile small{position:absolute;bottom:18px;left:22px;font-size:9px;letter-spacing:2px}
+.tile-shirt{background:linear-gradient(145deg,#e8c36b,#bb873a);color:#1c2d40;display:flex;flex-direction:column;justify-content:space-between}
+.shirt-shape{width:160px;height:175px;margin:auto;display:grid;place-items:center;background:#142a45;color:#f4cf73;clip-path:polygon(24% 0,40% 8%,60% 8%,76% 0,100% 20%,84% 43%,75% 35%,75% 100%,25% 100%,25% 35%,16% 43%,0 20%);filter:drop-shadow(0 15px 12px rgba(0,0,0,.2));text-align:center;font:700 22px/.9 Fredoka;transform:rotate(-6deg)}
+.tile-shirt>b{font:700 23px Fredoka}
+.tile-brand{background:linear-gradient(145deg,#1d4774,#0c203a);color:#eaf4ff}
+.tile-brand>b{display:block;font:700 42px/.85 Fredoka;margin-top:15px}
+.brand-orb{position:absolute;right:15px;top:48px;width:112px;height:112px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#7dd3fc,#2563eb);color:#09213e;font-size:58px;box-shadow:0 0 40px rgba(96,165,250,.3)}
+@media(max-width:720px){.hero{min-height:0}.hero-visual{height:330px}.mock-shirt{width:135px;height:170px;left:0}.mock-poster{width:145px;height:195px;right:0}.mock-poster strong{font-size:34px}.mock-card{width:140px;height:105px;left:28%}.mock-card b{font-size:20px}.showcase-grid{grid-template-columns:1fr 1fr}.tile-poster{grid-row:span 2}.showcase-tile{min-height:230px;padding:16px}.tile-poster>b{font-size:48px}.tile-brand>b{font-size:32px}.brand-orb{width:75px;height:75px;font-size:38px}}
+@media(max-width:420px){.showcase-grid{gap:10px}.tile-poster{min-height:260px}.tile-shirt,.tile-brand{min-height:190px}.mock-shirt{left:-2%}.mock-poster{right:-2%}}
 </style></head>
 <body>
 <div class="tick">DESAIN CUSTOM SESUAI KEINGINANMU ✦ KAOS · BANNER · PAMFLET · DAN LAINNYA ✦</div>
 <nav><a class="logo" href="#home">ilhammaulana 🎨</a><div class="links"><a href="#home">Beranda</a><a href="#layanan">Layanan</a><a href="#how">Cara Pesan</a><a href="#about">Tentang</a><a href="#faq">FAQ</a><a href="#contact">Kontak</a></div><a class="cartb" href="#cart">🛒 <span id="cnt">0</span></a></nav>
-<section class="hero" id="home"><div><span class="tag">DESIGN CUSTOM BY ILHAMMAULANA</span><h1>Punya ide? Kita jadikan desain! ✨</h1><p>Pesan desain apa pun: kaos, banner, pamflet, logo, poster, sampai konten media sosial. Ceritakan idenya, aku yang gambarkan.</p><a class="btn" href="#layanan">Pilih layanan</a><a class="btn alt" href="#how">Cara pesan</a></div><div class="blob">🎨✨</div></section>
-<section id="layanan"><span class="tag">LAYANAN DESAIN</span><h2>Mau desain apa hari ini?</h2><p class="sub">Pilih layanan lalu masukkan ke keranjang. Harga mulai dari; harga final dikonfirmasi setelah brief.</p><div class="grid" id="svcs"></div></section>
+<section class="hero" id="home"><div><span class="tag">DESIGN CUSTOM BY ILHAMMAULANA</span><h1>Punya ide? Kita jadikan desain! ✨</h1><p>Pesan desain apa pun: kaos, banner, pamflet, logo, poster, sampai konten media sosial. Ceritakan idenya, aku yang gambarkan.</p><a class="btn" href="#layanan">Pilih layanan</a><a class="btn alt" href="#how">Cara pesan</a></div><div class="hero-visual"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="mock mock-shirt"><span>CREATE</span><b>YOUR<br>STYLE</b><small>DESIGN STUDIO</small></div><div class="mock mock-poster"><small>MAKE IT</small><strong>STAND<br>OUT.</strong><i>✳</i></div><div class="mock mock-card"><span>✦</span><b>IDEA<br>TO ART</b><small>by ilhammaulana</small></div><div class="visual-spark spark-a">✦</div><div class="visual-spark spark-b">✧</div><div class="visual-caption">YOUR IDEA, OUR CREATION</div></div></section>
+<section class="showcase"><div class="showcase-head"><span class="tag">CREATIVE PLAYGROUND</span><h2>Bukan sekadar desain.<br/><em>Ini tentang gayamu.</em></h2><p class="sub">Dari ide sederhana jadi visual yang punya karakter.</p></div><div class="showcase-grid"><article class="showcase-tile tile-poster"><span>01 / POSTER</span><b>MAKE<br/>SOME<br/><i>NOISE.</i></b><small>CREATIVE CAMPAIGN · 2026</small></article><article class="showcase-tile tile-shirt"><div class="shirt-shape"><span>GOOD<br/>VIBES<br/>ONLY</span></div><span>02 / APPAREL</span><b>Wear your idea.</b></article><article class="showcase-tile tile-brand"><span>03 / BRANDING</span><div class="brand-orb">✳</div><b>BRAND<br/>WITH<br/>ATTITUDE.</b><small>VISUAL IDENTITY</small></article></div></section><section id="layanan"><span class="tag">LAYANAN DESAIN</span><h2>Mau desain apa hari ini?</h2><p class="sub">Pilih layanan lalu masukkan ke keranjang. Harga mulai dari; harga final dikonfirmasi setelah brief.</p><div class="grid" id="svcs"></div></section>
 <section id="cart"><h2>Keranjang kamu 🛒</h2><p class="sub">Tulis catatan singkat di tiap desain.</p><div class="card"><div id="items">Keranjangmu masih kosong 🌸</div><div class="sum"><span>Perkiraan subtotal</span><span id="sub">Rp0</span></div><p class="note">Harga final dikonfirmasi setelah brief diterima.</p><a class="btn full" href="#checkout">Lanjut isi data pesanan</a></div></section>
 <section id="checkout"><span class="tag">DATA PESANAN</span><h2>Kirim brief-mu.</h2><p class="sub">Pesanan dikirim ke WhatsApp untuk dikonfirmasi.</p><div class="card"><div class="two"><div><label>Nama lengkap</label><input id="nm" autocomplete="name"></div><div><label>Nomor WhatsApp</label><input id="wa" type="tel" autocomplete="tel"></div></div><label>Kapan desain dibutuhkan?</label><input id="dl" placeholder="Contoh: 10 November 2026"><label>Ceritakan idemu</label><textarea id="br" rows="4" placeholder="Tema, warna, teks, referensi, dan lainnya"></textarea><label>Metode pembayaran</label><div class="payopts"><label class="payopt"><input type="radio" name="payment" value="QRIS" checked><span><b>QRIS</b><small>Scan kode QR setelah pesanan dan nominal dikonfirmasi.</small></span></label><label class="payopt"><input type="radio" name="payment" value="Transfer Bank"><span><b>Transfer Bank</b><small>Nomor rekening dan nama penerima diberikan setelah konfirmasi.</small></span></label></div><div class="sum"><span>Perkiraan subtotal</span><span id="sub2">Rp0</span></div><button class="btn full" id="send">Kirim pesanan via WhatsApp</button><p id="smsg" role="status"></p><p class="note">Belum ada pembayaran di tahap ini. Metode bayar dan DP diinformasikan setelah harga disepakati.</p></div></section>
 <section class="three"><div><h3>100% custom</h3><p>Desain dibuat dari ceritamu.</p></div><div><h3>Revisi jelas</h3><p>Jatah revisi disepakati di awal.</p></div><div><h3>Siap pakai</h3><p>File dikirim sesuai kebutuhan.</p></div></section>
