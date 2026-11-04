@@ -81,6 +81,35 @@ footer{color:#9db2cf}
 .svc-art svg{width:100%;height:100%;padding:8px;filter:drop-shadow(0 8px 12px rgba(0,0,0,.3));transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .45s ease}
 .svc:hover .svc-art svg{transform:scale(1.12) rotate(-2deg);filter:drop-shadow(0 12px 18px rgba(59,130,246,.35))}
 .svc .ic{font-size:1.45rem}
+
+/* Katalog premium: tiap kartu punya aksen visual berbeda */
+#layanan .grid{grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:22px;align-items:stretch}
+#layanan .svc{padding:0 0 20px;overflow:hidden;border:1px solid rgba(125,175,235,.35);border-radius:25px;background:linear-gradient(155deg,#142d4d 0%,#0b1b31 76%);box-shadow:0 12px 30px rgba(0,0,0,.24);position:relative;isolation:isolate}
+#layanan .svc:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.17;background:radial-gradient(circle at 90% 10%,var(--cardglow),transparent 42%)}
+#layanan .svc-art{height:190px;margin:0 0 16px;border:0;border-radius:0;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,var(--cardglow),transparent 65%),linear-gradient(135deg,#102747,#08172b)}
+#layanan .svc-art:before{content:"";position:absolute;width:155px;height:155px;border:1px solid rgba(210,230,255,.24);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 18px rgba(255,255,255,.025),0 0 0 38px rgba(255,255,255,.018)}
+#layanan .svc-art svg{position:relative;z-index:1;width:100%;height:100%;padding:12px;filter:drop-shadow(0 16px 15px rgba(0,0,0,.38));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+#layanan .svc:nth-child(1){--cardglow:#2563eb}
+#layanan .svc:nth-child(2){--cardglow:#0891b2}
+#layanan .svc:nth-child(3){--cardglow:#8b5cf6}
+#layanan .svc:nth-child(4){--cardglow:#d97706}
+#layanan .svc:nth-child(5){--cardglow:#db2777}
+#layanan .svc:nth-child(6){--cardglow:#0284c7}
+#layanan .svc:nth-child(7){--cardglow:#0d9488}
+#layanan .svc:nth-child(8){--cardglow:#64748b}
+#layanan .svc:nth-child(odd) .svc-art{background:radial-gradient(ellipse at 50% 45%,var(--cardglow),transparent 70%),linear-gradient(145deg,#142d50,#09172a)}
+#layanan .svc:nth-child(even) .svc-art{background:radial-gradient(ellipse at 65% 35%,var(--cardglow),transparent 66%),linear-gradient(35deg,#09172a,#18365b)}
+#layanan .svc .ic{margin:0 20px;color:#a9ceff;font-size:1.1rem}
+#layanan .svc h3,#layanan .svc p,#layanan .svc .pr{margin-left:20px;margin-right:20px}
+#layanan .svc h3{font-size:1.25rem;margin-top:4px;margin-bottom:4px;color:#f1f6ff}
+#layanan .svc p{min-height:52px;color:#a9bdd8}
+#layanan .svc .pr{color:#8fc0ff;font-size:1.18rem}
+#layanan .svc button{margin:14px 20px 0;width:calc(100% - 40px)}
+#layanan .svc:hover{transform:translateY(-10px);border-color:#70b4ff;box-shadow:0 20px 42px rgba(0,0,0,.38),0 0 28px rgba(59,130,246,.18)}
+#layanan .svc:hover .svc-art svg{transform:scale(1.13) rotate(-3deg)}
+#layanan .svc:nth-child(2n){animation-delay:.12s}
+#layanan .svc:nth-child(3n){animation-delay:.24s}
+@media(max-width:560px){#layanan .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#layanan .svc-art{height:135px}#layanan .svc{border-radius:18px}#layanan .svc h3{font-size:1.05rem}#layanan .svc p{font-size:.88rem;min-height:70px}#layanan .svc h3,#layanan .svc p,#layanan .svc .pr{margin-left:12px;margin-right:12px}#layanan .svc .ic{margin-left:12px}#layanan .svc button{margin:12px 12px 0;width:calc(100% - 24px);padding:9px 8px;font-size:.9rem}}
 </style></head>
 <body>
 <div class="tick">DESAIN CUSTOM SESUAI KEINGINANMU ✦ KAOS · BANNER · PAMFLET · DAN LAINNYA ✦</div>
