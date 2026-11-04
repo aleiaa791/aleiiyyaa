@@ -663,6 +663,27 @@ body.cart-open #cart{animation:cartDrawerIn .82s cubic-bezier(.2,.75,.2,1) both!
 body.cart-open #cartOverlay{transition-delay:0s!important}
 @media(prefers-reduced-motion:reduce){body.cart-open #cart{animation:none!important}}
 
+
+/* Cart drawer: cream hangat dan ukuran lebih ramping */
+#cart{
+  width:min(380px,88vw)!important;
+  max-width:380px!important;
+  background:#f2eadb!important;
+  color:#243b32!important;
+  border:1px solid #dfd2bd!important;
+  border-radius:22px 0 0 22px!important;
+  padding:28px 20px 24px!important;
+  box-shadow:-14px 0 42px rgba(0,0,0,.24)!important;
+}
+#cart .card,#cart .item,#cart input,#cart textarea{
+  border-color:#d8cbb6!important;
+}
+#cart input,#cart textarea{background:#fffaf1!important;color:#243b32!important}
+#cart .sum{color:#243b32!important}
+@media(max-width:520px){
+  #cart{width:min(350px,88vw)!important;max-width:350px!important;padding:24px 16px 20px!important}
+}
+
 </style></head>
 <body>
 <nav><a class="logo" href="#home">ilhammaulana 🎨</a><div class="links"><a href="#home">Beranda</a><a href="#layanan">Layanan</a><a href="#how">Cara Pesan</a><a href="#about">Tentang</a><a href="#faq">FAQ</a><a href="#contact">Kontak</a></div><a class="cartb" id="cartOpen" href="#cart" aria-label="Buka keranjang">🛒 <span id="cnt">0</span></a></nav>
