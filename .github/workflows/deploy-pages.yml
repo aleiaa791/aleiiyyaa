@@ -1,4 +1,4 @@
-name: Deploy bycaeL to GitHub Pages
+name: Deploy bycaeL and Design Custom to GitHub Pages
 
 on:
   push:
@@ -36,6 +36,7 @@ jobs:
           cp esqa-skintint/index.html esqa-skintint/style.css esqa-skintint/script.js _site/esqa-skintint/
           cp -R bycaeL _site/bycaeL
           cp -R bycael _site/bycael
+          cp -R byilham _site/byilham
           touch _site/.nojekyll
 
       - name: Upload website artifact
