@@ -103,6 +103,16 @@ document.querySelectorAll(".shade-swatches [data-shade]").forEach(chip => {
 shadeSelect?.addEventListener("change", () => {
   document.querySelectorAll(".shade-swatches [data-shade]").forEach(chip => chip.classList.toggle("active", chip.dataset.shade === shadeSelect.value));
 });
+const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
+function updatePaymentMethod() {
+  const selected = document.querySelector('input[name="paymentMethod"]:checked')?.value || "Transfer Bank";
+  const bankPanel = document.getElementById("bankDemo");
+  const qrisPanel = document.getElementById("qrisDemo");
+  if (bankPanel) bankPanel.hidden = selected !== "Transfer Bank";
+  if (qrisPanel) qrisPanel.hidden = selected !== "QRIS";
+}
+paymentRadios.forEach(radio => radio.addEventListener("change", updatePaymentMethod));
+updatePaymentMethod();
 document.getElementById("paymentForm")?.addEventListener("submit", event => {
   event.preventDefault();
   const form = event.currentTarget;
@@ -119,6 +129,7 @@ document.getElementById("paymentForm")?.addEventListener("submit", event => {
     ...lines,
     "",
     "Subtotal: " + rupiah(totalPrice()),
+    "Metode pembayaran: " + (document.querySelector('input[name="paymentMethod"]:checked')?.value || "Transfer Bank") + " (simulasi)",
     "Nama: " + document.getElementById("buyerName").value.trim(),
     "WhatsApp: " + document.getElementById("buyerPhone").value.trim(),
     "Alamat: " + document.getElementById("buyerAddress").value.trim(),
