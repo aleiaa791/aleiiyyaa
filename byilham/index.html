@@ -684,6 +684,28 @@ body.cart-open #cartOverlay{transition-delay:0s!important}
   #cart{width:min(350px,88vw)!important;max-width:350px!important;padding:24px 16px 20px!important}
 }
 
+
+/* Keterbacaan keranjang: hierarki teks lebih tegas */
+#cart{font-size:15px!important;line-height:1.55!important}
+#cart h2{font-size:clamp(1.55rem,5vw,1.85rem)!important;line-height:1.2!important;font-weight:700!important;color:#20392f!important;margin:4px 0 8px!important;letter-spacing:-.02em}
+#cart>.sub{font-size:14px!important;line-height:1.5!important;color:#52675b!important;margin:0 0 18px!important}
+#cart .card{background:#fffaf1!important;color:#243b32!important;border:1px solid #d8cbb6!important;border-radius:16px!important;padding:16px!important;box-shadow:0 5px 18px rgba(65,48,25,.08)!important}
+#cart #items{font-size:15px!important;color:#243b32!important}
+#cart .item{grid-template-columns:34px minmax(0,1fr) auto auto!important;gap:9px!important;padding:14px 0!important;border-bottom:1px solid #d8cbb6!important}
+#cart .item>div:nth-child(2)>b{display:block;font-size:15px!important;line-height:1.35!important;font-weight:800!important;color:#20392f!important}
+#cart .item small{display:block;font-size:13px!important;font-weight:700!important;color:#64776a!important;margin:3px 0 8px!important}
+#cart .item input{font-size:14px!important;min-height:42px!important;padding:9px 10px!important;border:1px solid #cbbda7!important;border-radius:10px!important}
+#cart .qty{gap:7px!important}
+#cart .qty button{width:30px!important;height:30px!important;font-size:17px!important;font-weight:800!important;background:#245a43!important;color:#fff!important}
+#cart .qty b{min-width:15px;text-align:center;font-size:14px!important;color:#243b32!important}
+#cart .rm{font-size:17px!important;color:#8b443d!important;padding:5px!important}
+#cart .sum{font-size:16px!important;font-weight:800!important;color:#20392f!important;border-top:1px solid #d8cbb6!important;margin-top:10px!important;padding:16px 0 8px!important}
+#cart .note{font-size:13px!important;line-height:1.5!important;color:#64776a!important}
+#cart .btn.full{display:flex!important;align-items:center;justify-content:center;min-height:48px!important;padding:12px 14px!important;font-size:15px!important;font-weight:700!important;letter-spacing:.01em!important;background:#245a43!important;color:#fff!important;box-shadow:0 4px #183e2e!important}
+#cart .btn.full:hover{box-shadow:0 7px #183e2e!important}
+#cart #items>.note{padding:14px 4px!important;font-size:14px!important;color:#64776a!important}
+@media(max-width:520px){#cart h2{font-size:1.55rem!important}#cart .item{grid-template-columns:28px minmax(0,1fr) auto!important;gap:8px!important}#cart .item .qty{grid-column:2!important;justify-content:flex-start!important;margin-top:5px!important}#cart .rm{grid-column:3!important;grid-row:1!important}}
+
 </style></head>
 <body>
 <nav><a class="logo" href="#home">ilhammaulana 🎨</a><div class="links"><a href="#home">Beranda</a><a href="#layanan">Layanan</a><a href="#how">Cara Pesan</a><a href="#about">Tentang</a><a href="#faq">FAQ</a><a href="#contact">Kontak</a></div><a class="cartb" id="cartOpen" href="#cart" aria-label="Buka keranjang">🛒 <span id="cnt">0</span></a></nav>
