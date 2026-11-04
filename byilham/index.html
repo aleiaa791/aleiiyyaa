@@ -296,6 +296,17 @@ footer b{display:inline-block;animation:footerGlow 3s ease-in-out infinite}
 .paper-note small{font-size:.68rem;letter-spacing:2px;font-weight:900;color:#71839a}
 @keyframes aboutWave{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-7px) rotate(5deg)}}
 @media(max-width:700px){.paper-notes{grid-template-columns:1fr;gap:17px;margin:26px 7px 8px}.paper-note{min-height:150px;padding:20px;transform:rotate(-1deg)!important}.paper-note:nth-child(2){transform:rotate(1deg)!important}.paper-note:nth-child(3){transform:rotate(-.6deg)!important}.about-me{padding:22px 17px}.about-wave{width:56px;height:56px;flex-basis:56px}}
+
+/* FINAL PALETTE OVERRIDE — ensure paper cards stay colorful */
+#about .paper-notes>.paper-note,
+#about .paper-notes>.paper-note.note-one{background:linear-gradient(145deg,#fff0e9 0%,#ffd1c2 100%) !important;border:2px solid #ffb7a5 !important;color:#26334b !important}
+#about .paper-notes>.paper-note.note-two{background:linear-gradient(145deg,#f3efff 0%,#d8caff 100%) !important;border:2px solid #bda8ff !important;color:#26334b !important}
+#about .paper-notes>.paper-note.note-three{background:linear-gradient(145deg,#eafff4 0%,#bcebd5 100%) !important;border:2px solid #8ed9b6 !important;color:#26334b !important}
+#about .paper-notes>.paper-note b{color:#172b45 !important}
+#about .paper-notes>.paper-note p{color:#40536b !important}
+#about .paper-notes>.paper-note small{color:#586b83 !important}
+#about .paper-notes>.paper-note:before{opacity:1 !important}
+
 </style></head>
 <body>
 <nav><a class="logo" href="#home">ilhammaulana 🎨</a><div class="links"><a href="#home">Beranda</a><a href="#layanan">Layanan</a><a href="#how">Cara Pesan</a><a href="#about">Tentang</a><a href="#faq">FAQ</a><a href="#contact">Kontak</a></div><a class="cartb" href="#cart">🛒 <span id="cnt">0</span></a></nav>
