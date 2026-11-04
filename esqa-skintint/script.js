@@ -108,8 +108,10 @@ function updatePaymentMethod() {
   const selected = document.querySelector('input[name="paymentMethod"]:checked')?.value || "Transfer Bank";
   const bankPanel = document.getElementById("bankDemo");
   const qrisPanel = document.getElementById("qrisDemo");
+  const whatsappPanel = document.getElementById("whatsappDemo");
   if (bankPanel) bankPanel.hidden = selected !== "Transfer Bank";
   if (qrisPanel) qrisPanel.hidden = selected !== "QRIS";
+  if (whatsappPanel) whatsappPanel.hidden = selected !== "WhatsApp";
 }
 paymentRadios.forEach(radio => radio.addEventListener("change", updatePaymentMethod));
 updatePaymentMethod();
