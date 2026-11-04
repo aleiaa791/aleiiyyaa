@@ -638,16 +638,16 @@ input:focus,textarea:focus{border-color:#36a879!important;box-shadow:0 0 0 3px r
 #about .paper-notes>.paper-note:after{background:#d8c7a9!important}
 
 
-/* Keranjang sebagai drawer samping */
-#cartOverlay{position:fixed;inset:0;background:rgba(1,12,8,.62);backdrop-filter:blur(3px);z-index:9998;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease}
-#cart{position:fixed!important;z-index:9999!important;top:0!important;right:0!important;bottom:0!important;width:min(490px,92vw)!important;height:100dvh!important;max-height:100dvh!important;overflow-y:auto!important;margin:0!important;border-radius:26px 0 0 26px!important;padding:34px 24px 28px!important;transform:translateX(105%);visibility:hidden;transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility .32s ease;box-shadow:-18px 0 55px rgba(0,0,0,.35)!important}
+/* Keranjang drawer: animasi masuk perlahan dan lembut */
+#cartOverlay{position:fixed;inset:0;background:rgba(1,12,8,.46);backdrop-filter:blur(1.5px);-webkit-backdrop-filter:blur(1.5px);z-index:9998;opacity:0;visibility:hidden;transition:opacity .48s ease,visibility 0s linear .58s}
+#cart{position:fixed!important;z-index:9999!important;top:0!important;right:0!important;bottom:0!important;width:min(490px,92vw)!important;height:100dvh!important;max-height:100dvh!important;overflow-y:auto!important;margin:0!important;border-radius:26px 0 0 26px!important;padding:34px 24px 28px!important;transform:translate3d(101%,0,0);opacity:.985;visibility:hidden;transition:transform .58s cubic-bezier(.22,.72,.18,1),opacity .42s ease,visibility 0s linear .58s;will-change:transform;box-shadow:-18px 0 55px rgba(0,0,0,.28)!important}
 body.cart-open{overflow:hidden}
-body.cart-open #cart{transform:translateX(0);visibility:visible}
-body.cart-open #cartOverlay{opacity:1;visibility:visible}
+body.cart-open #cart{transform:translate3d(0,0,0);opacity:1;visibility:visible;transition-delay:0s,0s,0s}
+body.cart-open #cartOverlay{opacity:1;visibility:visible;transition-delay:0s,0s}
 #cartClose{position:absolute;right:18px;top:16px;width:38px;height:38px;border:1px solid #39745a;border-radius:50%;background:#123b2b;color:#f3fff7;font-size:20px;cursor:pointer;z-index:2}
 #cart h2{padding-right:44px}
 @media(max-width:520px){#cart{width:94vw!important;padding:30px 18px 24px!important;border-radius:22px 0 0 22px!important}}
-@media(prefers-reduced-motion:reduce){#cart,#cartOverlay{transition:none!important}}
+@media(prefers-reduced-motion:reduce){#cart,#cartOverlay{transition:none!important;will-change:auto}}
 
 </style></head>
 <body>
